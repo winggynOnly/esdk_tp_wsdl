@@ -1,0 +1,830 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+
+</head>
+
+<body>
+
+<div class=WordSection1>
+
+<p class=MsoTitle align=left style='text-align:left'><span lang=EN-US>QuerySitesBtnActionImpl.java<span
+style='color:#7F0055'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>package</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.csdemo.action.impl</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>java.util.List</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.csdemo.action.DemoAction</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.csdemo.common.DemoException</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.csdemo.common.ServiceFactory</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.csdemo.convert.QuerySitesServiceConvert</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'>
+com.huawei.esdk.tp.professional.local.authentication.AuthorizeServiceEx;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.tp.professional.local.bean.QueryConfigEx</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'>
+com.huawei.esdk.tp.professional.local.bean.TPSDKResponseWithPageEx;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.tp.professional.local.bean.TerminalInfoEx</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'>
+com.huawei.esdk.tp.professional.local.impl.utils.PropertiesUtils;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>import</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>com.huawei.esdk.tp.professional.local.site.SiteServiceEx</span>;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>public</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>class</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>QuerySitesBtnActionImpl</span>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>implements</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>DemoAction</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'>{</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:#646464'>@Override</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span class=GramE><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>public</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>void</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE>executeNativeMethod</span>()</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>初始化会议接口服务，该服务中包含会议管理的相关接口</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>SiteServiceEx</span> <span class=SpellE>siteServiceEx</span> = <span
+class=SpellE><span class=GramE>ServiceFactory.<i>getInstance</i></span></span><span
+class=GramE>(</span>).<span class=SpellE>getSiteServiceEx</span>();</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>初始化鉴权接口服务，该服务中包含登录，登出的相关接口</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>AuthorizeServiceEx</span> <span class=SpellE>authorizeServiceEx</span>
+= <span class=SpellE><span class=GramE>ServiceFactory.<i>getInstance</i></span></span><span
+class=GramE>(</span>).<span class=SpellE>getAuthorizeServiceEx</span>();</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>设置入参</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>QueryConfigEx</span> <span class=SpellE>queryConfig</span> = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> <span class=SpellE><span
+class=GramE>QueryConfigEx</span></span><span class=GramE>(</span>);</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>从面板中拿到所有参数</span><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=GramE><b><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>try</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>QuerySitesServiceConvert.<i>getParametersFromFrame</i></span></span><span
+class=GramE>(</span><span class=SpellE>queryConfig</span>);</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=GramE><b><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>catch</span></b></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'> (<span class=SpellE>DemoException</span>
+e)</span><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>界面上输入参数类型错误时，显示错误信息</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>QuerySitesServiceConvert.<i>showConvertErrInfo</i></span></span><span
+class=GramE>(</span><span class=SpellE>e.getErrInfo</span>());</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span class=GramE><b><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+color:#7F0055'>return</span></b></span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+color:black'>;</span><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>登录</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Integer <span class=SpellE>loginCode</span> = <span class=SpellE><span
+class=GramE>authorizeServiceEx.login</span></span><span class=GramE>(</span><span
+class=SpellE>PropertiesUtils.<i>getValue</i></span>(</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:#2A00FF'>&quot;<span class=SpellE>userName</span>&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'>),</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>PropertiesUtils.<i>getValue</i></span></span><span
+class=GramE>(</span></span><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+color:#2A00FF'>&quot;password&quot;</span><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+minor-fareast;color:black'>));</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=GramE><b><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;color:#7F0055'>if</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'>(</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:black'>0 != <span class=SpellE>loginCode</span>)</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>QuerySitesServiceConvert.<i>showloginErrCode</i></span></span><span
+class=GramE>(</span><span class=SpellE>loginCode</span>);</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span class=GramE><b><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+color:#7F0055'>return</span></b></span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+color:black'>;</span><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>返回创建会议结果，</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+color:#3F7F5F'>result</span><span style='font-size:12.0pt;font-family:宋体;
+mso-ascii-font-family:Consolas;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:#3F7F5F'>包含错误码及创建会议信息</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>TPSDKResponseWithPageEx</span>&lt;List&lt;<span class=SpellE>TerminalInfoEx</span>&gt;&gt;
+result = <span class=SpellE><span class=GramE>siteServiceEx.querySitesInfoEx</span></span><span
+class=GramE>(</span><span class=SpellE>queryConfig</span>);</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>把返回结果渲染到面板中</span><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>QuerySitesServiceConvert.<i>showResultInFrame</i></span></span><span
+class=GramE>(</span>result);</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:#3F7F5F'>登出</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>authorizeServiceEx.logout</span></span><span
+class=GramE>(</span>);</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-pagination:none;
+mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;color:black'>}</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span lang=EN-US>ServiceFactory.java</span></p>
+
+<p class=MsoNormal><span class=GramE><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black'>package</span></span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black'> <span class=SpellE>com.huawei.esdk.csdemo.common</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span class=GramE><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black'>import</span></span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black'> <span class=SpellE>com.huawei.esdk.tp.professional.local.ServiceFactoryEx</span>;</span></p>
+
+<p class=MsoNormal><span class=GramE><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black'>import</span></span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black'>
+com.huawei.esdk.tp.professional.local.authentication.AuthorizeServiceEx;</span></p>
+
+<p class=MsoNormal><span class=GramE><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black'>import</span></span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black'>
+com.huawei.esdk.tp.professional.local.conference.ConferenceServiceEx;</span></p>
+
+<p class=MsoNormal><span class=GramE><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black'>import</span></span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black'> <span class=SpellE>com.huawei.esdk.tp.professional.local.site.SiteServiceEx</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span class=GramE><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black'>public</span></span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black'> class <span
+class=SpellE>ServiceFactory</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>{</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; // native</span><span style='font-size:12.0pt;
+font-family:宋体;color:black'>服务单例</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>private</span> static <span
+class=SpellE>ServiceFactory</span> instance;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; //</span><span style='font-size:12.0pt;
+font-family:宋体;color:black'>会议模块服务接口</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>private</span> <span
+class=SpellE>ConferenceServiceEx</span> <span class=SpellE>conferenceServiceEx</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; //</span><span style='font-size:12.0pt;
+font-family:宋体;color:black'>会场模块服务接口</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>private</span> <span
+class=SpellE>SiteServiceEx</span> <span class=SpellE>siteServiceEx</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; //</span><span style='font-size:12.0pt;
+font-family:宋体;color:black'>鉴权模块服务接口</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>private</span> <span
+class=SpellE>AuthorizeServiceEx</span> <span class=SpellE>authorizeServiceEx</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>private</span> <span
+class=SpellE>ServiceFactory</span>()</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>从</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black'>native</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>包中</span><span
+class=SpellE><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>ServiceFactoryEx</span></span><span style='font-size:12.0pt;
+font-family:宋体;color:black'>类中获取相应的服务</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=SpellE><span
+class=GramE>conferenceServiceEx</span></span> = <span class=SpellE>ServiceFactoryEx.getService</span>(<span
+class=SpellE>ConferenceServiceEx.class</span>);</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=SpellE><span
+class=GramE>siteServiceEx</span></span> = <span class=SpellE>ServiceFactoryEx.getService</span>(<span
+class=SpellE>SiteServiceEx.class</span>);</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=SpellE><span
+class=GramE>authorizeServiceEx</span></span> = <span class=SpellE>ServiceFactoryEx.getService</span>(<span
+class=SpellE>AuthorizeServiceEx.class</span>);</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; //</span><span style='font-size:12.0pt;
+font-family:宋体;color:black'>获取</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black'>native</span><span style='font-size:12.0pt;
+font-family:宋体;color:black'>服务单例</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>public</span> static <span
+class=SpellE>ServiceFactory</span> <span class=SpellE>getInstance</span>()</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=GramE>if</span>
+(null == instance)</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class=GramE>instance</span> = new <span class=SpellE>ServiceFactory</span>();</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=GramE>return</span>
+instance;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>public</span> <span
+class=SpellE>ConferenceServiceEx</span> <span class=SpellE>getConferenceServiceEx</span>()</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=GramE>return</span>
+<span class=SpellE>conferenceServiceEx</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>public</span> <span
+class=SpellE>SiteServiceEx</span> <span class=SpellE>getSiteServiceEx</span>()</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=GramE>return</span>
+<span class=SpellE>siteServiceEx</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; <span class=GramE>public</span> <span
+class=SpellE>AuthorizeServiceEx</span> <span class=SpellE>getAuthorizeServiceEx</span>()</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=GramE>return</span>
+<span class=SpellE>authorizeServiceEx</span>;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;font-family:Consolas;
+color:black'>}</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,722 @@
+<html>
+
+<head>
+</head>
+
+<body style="width: 100%;">
+	<p style="font-weight: bold;">querySites interface for querying Venue Information</p>
+
+	<div>
+
+
+		<p style="font-weight: bold;">Input parameter description</p>
+
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="15%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="51%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>queryConfig</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>QueryConfigEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>Filtering, sorting, flip conditions predefined queries used when the venue.</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+		<p style="font-weight: bold;">QueryConfigEx</p>
+
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>sortItems</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>List&lt;SortItemEx&gt;</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Sort combination, currently only supports single order.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>filters</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>List&lt;FilterBaseEx&gt;</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Combination of filters, support for multiple filter conditions for the AND relationship. </span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>focusItem</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Focus data ID. Specifies the current query priority return data page contains the specified ID. When the query results do not include data for the specified ID is returned in accordance with the requirements PageParam page.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>pageParam</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>PageParamEx</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Page orientation parameters. Specify return query results page a few.</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+		<p style="font-weight: bold;">SortItemEx</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>sort</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Sort by:
+0: Ascending
+1: Descending</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>itemIndex</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Column identifies the data query conditions:
+0: venue name
+1: Venue URI
+2: Venue state
+3: Venue Type
+4: Meeting template name
+5: Meeting template access number (Ad hoc type conference access number only)
+6: MCU name (eSDK V1R2 version is not supported)</span>
+				</td>
+			</tr>
+
+		</table>
+
+		<p style="font-weight: bold;">FilterBaseEx: </p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>columnIndex</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Column identifies the data filter conditions:
+0: venue name
+1: Venue URI
+2: Venue state
+3: Venue Type
+4: Meeting template name
+5: Meeting template access number (Ad hoc type conference access number only)
+6: MCU name (eSDK V1R2 version is not supported)</span>
+				</td>
+			</tr>
+		</table>
+		
+		<p style="font-weight: bold;">PageParamEx: </p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>numberPerPage</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>The number of records per page</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>currentPage</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>The current page number, or need to return to the page. Page from the beginning.</span>
+				</td>
+			</tr>
+
+		</table>
+		
+		<p style="font-weight: bold;">Output parameter description</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="15%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="51%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>resultCode</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>Integer</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>successful return</span><span>0</span><span>,failure return error code</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>sites</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>TerminalInfoEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>Successful operation, according to the query, the query returns a list of the venue.</span>
+					</p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>pageInfo</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>PageParamEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>Output query results page information. Third-party applications can be based on information returned page displays the current page number, the total number of pages, the total number of records.</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+		
+		<p style="font-weight: bold;">TerminalInfoEx:</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>name</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>conference name.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>uri</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Venue logo.</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>type</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Venue type. Described as follows:
+0: invalid type
+1: automatically from the system according to the venue logo
+2: E1 type of venue
+3: ISDN type of venue
+4: H.323 type of venue
+5: PSTN type of venue
+6: 4E1 type of venue
+7: SIP type venue
+8: VoIP SIP type venue
+9: VoIP H.323 type of venue</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>rate</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Rate. The format of "rate value k / M", such as "1920k".
+Description: appointment, when you modify the meeting, if you do not fill in this parameter, the default rate meeting. If the rate is less than 64K, the system defaults to 64K, the default is more than 8M 8M, 64K and 8M intermediate values in accordance with the actual input assignments, and must be an integer value.</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoCapbility</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>List&lt;VdieoCapbilityItem&gt;</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Video capabilities. Terminal supports video capability parameter list. If you do not fill, then that support all video.</span>
+				</td>
+			</tr>
+
+		</table>
+
+        <p style="font-weight: bold;">TerminalInfoEx:</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoFormat</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Video formats. Described as follows:
+0: Auto
+1: 4 CIF
+2: 720P30
+3: 1080P30
+4: 480P
+5: 720P60
+6: 1080P60
+Description: When a reservation, if you do not set this parameter, the system automatically adapts the video format according to the meeting bandwidth.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoProtocol</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Video protocol, described as follows:
+0: Auto
+1: H.261 protocol
+2: H.263 protocol
+3: H.264 protocol
+Description: When a reservation, if you do not set this parameter, the system automatically adapts the video protocol bandwidth according to the meeting.</span>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+</body>
+
+</html>

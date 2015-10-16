@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="utf-8"?><wsdl:definitions targetNamespace="http://smc.huawei.com/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://smc.huawei.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+<!--###################################### typeDefine Start ######################################-->
+<wsdl:types>
+<xsd:schema targetNamespace="http://smc.huawei.com/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><xsd:element name="scheduleConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="scheduleConf" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceInfo" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleDynamicSiteConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="scheduleConf" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleDynamicSiteConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceInfo" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleImmediateConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="scheduleConf" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleImmediateConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceInfo" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteToScheduledConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteToScheduledConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="accessCode" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delSiteFromScheduledConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delSiteFromScheduledConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="cancelScheduledConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="cancelScheduledConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="prolongScheduledConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="prolongTime" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="prolongScheduledConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editScheduledConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="editConf" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editScheduledConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceInfo" type="tns:ConferenceInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfSitesStatus">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfSitesStatusResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="confSitesStatus" type="tns:ConfSitesStatusMap" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConferenceStatus">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConferenceStatusResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceStatus" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="endConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="endConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteToConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteToConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delSiteFromConf">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delSiteFromConfResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setAudioSwitch">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="onOff" type="xsd:boolean" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setAudioSwitchResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAllSites">
+<xsd:complexType>
+<xsd:sequence>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAllSitesResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="sitesInfo" type="tns:SiteInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteByURI">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteByURIResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="siteInfo" type="tns:SiteInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteByName">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteName" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteByNameResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="sitesInfo" type="tns:SiteInfo" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteFreeBusy">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteFreeBusyResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="state" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySitesFreeBusy">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="timeRange" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySitesFreeBusyResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="sitesFreeBusyState" type="tns:SitesStatusMap" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteStatus">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="timeRange" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteStatusResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteFreeBusyStates" type="tns:SiteFreeBusyStates" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ctrlCamera">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="cameraControl" type="tns:CameraControl" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ctrlCameraResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ctrlAuxStream">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="controlCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ctrlAuxStreamResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="micMuteSites">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isMute" type="xsd:boolean" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="micMuteSitesResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="spkQuietSites">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isQuiet" type="xsd:boolean" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="spkQuietSitesResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="connectSites">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="connectSitesResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="disconnectSites">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="disconnectSitesResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LoginRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="userName" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="clientType" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="version" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LoginRequestResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="randomSequence" type="xsd:base64Binary" />
+<xsd:element minOccurs="0" maxOccurs="1" name="hashType" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Authenticate">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="encryptPassword" type="xsd:base64Binary" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AuthenticateResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Logout">
+<xsd:complexType>
+<xsd:sequence>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LogoutResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KeepAlive">
+<xsd:complexType>
+<xsd:sequence>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KeepAliveResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:complexType name="ConferenceInfo">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="0" maxOccurs="1" name="duration" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="accessCode" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="password" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="chairmanPassword" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="auxVideoFormat" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="cpResouce" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isLiveBroadcast" type="xsd:boolean" />
+<xsd:element minOccurs="0" maxOccurs="1" name="rate" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isRecording" type="xsd:boolean" />
+<xsd:element minOccurs="1" maxOccurs="1" name="presentation" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="status" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="sites" type="tns:SiteInfo" />
+<xsd:element minOccurs="0" maxOccurs="1" name="recorderAddr" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteInfo">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="uri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="type" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="from" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="dialingMode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="rate" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="videoFormat" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="status" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="CameraControl">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="camState" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="camAction" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="camPos" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="camSrc" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SitesStatusMap">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteStatus" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ConfSitesStatusMap">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="confSiteStatus" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteFreeBusyStates">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="uri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="states" type="tns:FreeBusyState" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="FreeBusyState">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="startTime" type="xsd:dateTime" />
+<xsd:element minOccurs="0" maxOccurs="1" name="span" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="state" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="confName" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>
+</wsdl:types>
+
+<!--###################################### InterfaceDefine Start ######################################-->
+<wsdl:message name="common.scheduleConf">
+<wsdl:part name="parameters" element="tns:scheduleConf" /></wsdl:message>
+<wsdl:message name="common.scheduleConfResponse">
+<wsdl:part name="parameters" element="tns:scheduleConfResponse" /></wsdl:message>
+<wsdl:message name="common.scheduleDynamicSiteConf">
+<wsdl:part name="parameters" element="tns:scheduleDynamicSiteConf" /></wsdl:message>
+<wsdl:message name="common.scheduleDynamicSiteConfResponse">
+<wsdl:part name="parameters" element="tns:scheduleDynamicSiteConfResponse" /></wsdl:message>
+<wsdl:message name="common.scheduleImmediateConf">
+<wsdl:part name="parameters" element="tns:scheduleImmediateConf" /></wsdl:message>
+<wsdl:message name="common.scheduleImmediateConfResponse">
+<wsdl:part name="parameters" element="tns:scheduleImmediateConfResponse" /></wsdl:message>
+<wsdl:message name="common.addSiteToScheduledConf">
+<wsdl:part name="parameters" element="tns:addSiteToScheduledConf" /></wsdl:message>
+<wsdl:message name="common.addSiteToScheduledConfResponse">
+<wsdl:part name="parameters" element="tns:addSiteToScheduledConfResponse" /></wsdl:message>
+<wsdl:message name="common.delSiteFromScheduledConf">
+<wsdl:part name="parameters" element="tns:delSiteFromScheduledConf" /></wsdl:message>
+<wsdl:message name="common.delSiteFromScheduledConfResponse">
+<wsdl:part name="parameters" element="tns:delSiteFromScheduledConfResponse" /></wsdl:message>
+<wsdl:message name="common.cancelScheduledConf">
+<wsdl:part name="parameters" element="tns:cancelScheduledConf" /></wsdl:message>
+<wsdl:message name="common.cancelScheduledConfResponse">
+<wsdl:part name="parameters" element="tns:cancelScheduledConfResponse" /></wsdl:message>
+<wsdl:message name="common.prolongScheduledConf">
+<wsdl:part name="parameters" element="tns:prolongScheduledConf" /></wsdl:message>
+<wsdl:message name="common.prolongScheduledConfResponse">
+<wsdl:part name="parameters" element="tns:prolongScheduledConfResponse" /></wsdl:message>
+<wsdl:message name="common.editScheduledConf">
+<wsdl:part name="parameters" element="tns:editScheduledConf" /></wsdl:message>
+<wsdl:message name="common.editScheduledConfResponse">
+<wsdl:part name="parameters" element="tns:editScheduledConfResponse" /></wsdl:message>
+<wsdl:message name="common.queryConfSitesStatus">
+<wsdl:part name="parameters" element="tns:queryConfSitesStatus" /></wsdl:message>
+<wsdl:message name="common.queryConfSitesStatusResponse">
+<wsdl:part name="parameters" element="tns:queryConfSitesStatusResponse" /></wsdl:message>
+<wsdl:message name="common.queryConferenceStatus">
+<wsdl:part name="parameters" element="tns:queryConferenceStatus" /></wsdl:message>
+<wsdl:message name="common.queryConferenceStatusResponse">
+<wsdl:part name="parameters" element="tns:queryConferenceStatusResponse" /></wsdl:message>
+<wsdl:message name="common.endConf">
+<wsdl:part name="parameters" element="tns:endConf" /></wsdl:message>
+<wsdl:message name="common.endConfResponse">
+<wsdl:part name="parameters" element="tns:endConfResponse" /></wsdl:message>
+<wsdl:message name="common.addSiteToConf">
+<wsdl:part name="parameters" element="tns:addSiteToConf" /></wsdl:message>
+<wsdl:message name="common.addSiteToConfResponse">
+<wsdl:part name="parameters" element="tns:addSiteToConfResponse" /></wsdl:message>
+<wsdl:message name="common.delSiteFromConf">
+<wsdl:part name="parameters" element="tns:delSiteFromConf" /></wsdl:message>
+<wsdl:message name="common.delSiteFromConfResponse">
+<wsdl:part name="parameters" element="tns:delSiteFromConfResponse" /></wsdl:message>
+<wsdl:message name="common.setAudioSwitch">
+<wsdl:part name="parameters" element="tns:setAudioSwitch" /></wsdl:message>
+<wsdl:message name="common.setAudioSwitchResponse">
+<wsdl:part name="parameters" element="tns:setAudioSwitchResponse" /></wsdl:message>
+<wsdl:message name="common.queryAllSites">
+<wsdl:part name="parameters" element="tns:queryAllSites" /></wsdl:message>
+<wsdl:message name="common.queryAllSitesResponse">
+<wsdl:part name="parameters" element="tns:queryAllSitesResponse" /></wsdl:message>
+<wsdl:message name="common.querySiteByURI">
+<wsdl:part name="parameters" element="tns:querySiteByURI" /></wsdl:message>
+<wsdl:message name="common.querySiteByURIResponse">
+<wsdl:part name="parameters" element="tns:querySiteByURIResponse" /></wsdl:message>
+<wsdl:message name="common.querySiteByName">
+<wsdl:part name="parameters" element="tns:querySiteByName" /></wsdl:message>
+<wsdl:message name="common.querySiteByNameResponse">
+<wsdl:part name="parameters" element="tns:querySiteByNameResponse" /></wsdl:message>
+<wsdl:message name="common.querySiteFreeBusy">
+<wsdl:part name="parameters" element="tns:querySiteFreeBusy" /></wsdl:message>
+<wsdl:message name="common.querySiteFreeBusyResponse">
+<wsdl:part name="parameters" element="tns:querySiteFreeBusyResponse" /></wsdl:message>
+<wsdl:message name="common.querySitesFreeBusy">
+<wsdl:part name="parameters" element="tns:querySitesFreeBusy" /></wsdl:message>
+<wsdl:message name="common.querySitesFreeBusyResponse">
+<wsdl:part name="parameters" element="tns:querySitesFreeBusyResponse" /></wsdl:message>
+<wsdl:message name="common.querySiteStatus">
+<wsdl:part name="parameters" element="tns:querySiteStatus" /></wsdl:message>
+<wsdl:message name="common.querySiteStatusResponse">
+<wsdl:part name="parameters" element="tns:querySiteStatusResponse" /></wsdl:message>
+<wsdl:message name="common.ctrlCamera">
+<wsdl:part name="parameters" element="tns:ctrlCamera" /></wsdl:message>
+<wsdl:message name="common.ctrlCameraResponse">
+<wsdl:part name="parameters" element="tns:ctrlCameraResponse" /></wsdl:message>
+<wsdl:message name="common.ctrlAuxStream">
+<wsdl:part name="parameters" element="tns:ctrlAuxStream" /></wsdl:message>
+<wsdl:message name="common.ctrlAuxStreamResponse">
+<wsdl:part name="parameters" element="tns:ctrlAuxStreamResponse" /></wsdl:message>
+<wsdl:message name="common.micMuteSites">
+<wsdl:part name="parameters" element="tns:micMuteSites" /></wsdl:message>
+<wsdl:message name="common.micMuteSitesResponse">
+<wsdl:part name="parameters" element="tns:micMuteSitesResponse" /></wsdl:message>
+<wsdl:message name="common.spkQuietSites">
+<wsdl:part name="parameters" element="tns:spkQuietSites" /></wsdl:message>
+<wsdl:message name="common.spkQuietSitesResponse">
+<wsdl:part name="parameters" element="tns:spkQuietSitesResponse" /></wsdl:message>
+<wsdl:message name="common.connectSites">
+<wsdl:part name="parameters" element="tns:connectSites" /></wsdl:message>
+<wsdl:message name="common.connectSitesResponse">
+<wsdl:part name="parameters" element="tns:connectSitesResponse" /></wsdl:message>
+<wsdl:message name="common.disconnectSites">
+<wsdl:part name="parameters" element="tns:disconnectSites" /></wsdl:message>
+<wsdl:message name="common.disconnectSitesResponse">
+<wsdl:part name="parameters" element="tns:disconnectSitesResponse" /></wsdl:message>
+<wsdl:message name="common.LoginRequest">
+<wsdl:part name="parameters" element="tns:LoginRequest" /></wsdl:message>
+<wsdl:message name="common.LoginRequestResponse">
+<wsdl:part name="parameters" element="tns:LoginRequestResponse" /></wsdl:message>
+<wsdl:message name="common.Authenticate">
+<wsdl:part name="parameters" element="tns:Authenticate" /></wsdl:message>
+<wsdl:message name="common.AuthenticateResponse">
+<wsdl:part name="parameters" element="tns:AuthenticateResponse" /></wsdl:message>
+<wsdl:message name="common.Logout">
+<wsdl:part name="parameters" element="tns:Logout" /></wsdl:message>
+<wsdl:message name="common.LogoutResponse">
+<wsdl:part name="parameters" element="tns:LogoutResponse" /></wsdl:message>
+<wsdl:message name="common.KeepAlive">
+<wsdl:part name="parameters" element="tns:KeepAlive" /></wsdl:message>
+<wsdl:message name="common.KeepAliveResponse">
+<wsdl:part name="parameters" element="tns:KeepAliveResponse" /></wsdl:message>
+
+<!--###################################### portType Start ######################################-->
+<wsdl:portType name="TPCommon.ConfCtr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="endConf">
+<wsdl:input message="tns:common.endConf"/>
+<wsdl:output message="tns:common.endConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="addSiteToConf">
+<wsdl:input message="tns:common.addSiteToConf"/>
+<wsdl:output message="tns:common.addSiteToConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="delSiteFromConf">
+<wsdl:input message="tns:common.delSiteFromConf"/>
+<wsdl:output message="tns:common.delSiteFromConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setAudioSwitch">
+<wsdl:input message="tns:common.setAudioSwitch"/>
+<wsdl:output message="tns:common.setAudioSwitchResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPCommon.SiteMgr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="queryAllSites">
+<wsdl:input message="tns:common.queryAllSites"/>
+<wsdl:output message="tns:common.queryAllSitesResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySiteByURI">
+<wsdl:input message="tns:common.querySiteByURI"/>
+<wsdl:output message="tns:common.querySiteByURIResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySiteByName">
+<wsdl:input message="tns:common.querySiteByName"/>
+<wsdl:output message="tns:common.querySiteByNameResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySiteFreeBusy">
+<wsdl:input message="tns:common.querySiteFreeBusy"/>
+<wsdl:output message="tns:common.querySiteFreeBusyResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySitesFreeBusy">
+<wsdl:input message="tns:common.querySitesFreeBusy"/>
+<wsdl:output message="tns:common.querySitesFreeBusyResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySiteStatus">
+<wsdl:input message="tns:common.querySiteStatus"/>
+<wsdl:output message="tns:common.querySiteStatusResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPCommon.SiteCtr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="ctrlCamera">
+<wsdl:input message="tns:common.ctrlCamera"/>
+<wsdl:output message="tns:common.ctrlCameraResponse"/>
+</wsdl:operation>
+<wsdl:operation name="ctrlAuxStream">
+<wsdl:input message="tns:common.ctrlAuxStream"/>
+<wsdl:output message="tns:common.ctrlAuxStreamResponse"/>
+</wsdl:operation>
+<wsdl:operation name="micMuteSites">
+<wsdl:input message="tns:common.micMuteSites"/>
+<wsdl:output message="tns:common.micMuteSitesResponse"/>
+</wsdl:operation>
+<wsdl:operation name="spkQuietSites">
+<wsdl:input message="tns:common.spkQuietSites"/>
+<wsdl:output message="tns:common.spkQuietSitesResponse"/>
+</wsdl:operation>
+<wsdl:operation name="connectSites">
+<wsdl:input message="tns:common.connectSites"/>
+<wsdl:output message="tns:common.connectSitesResponse"/>
+</wsdl:operation>
+<wsdl:operation name="disconnectSites">
+<wsdl:input message="tns:common.disconnectSites"/>
+<wsdl:output message="tns:common.disconnectSitesResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TP.Common">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="LoginRequest">
+<wsdl:input message="tns:common.LoginRequest"/>
+<wsdl:output message="tns:common.LoginRequestResponse"/>
+</wsdl:operation>
+<wsdl:operation name="Authenticate">
+<wsdl:input message="tns:common.Authenticate"/>
+<wsdl:output message="tns:common.AuthenticateResponse"/>
+</wsdl:operation>
+<wsdl:operation name="Logout">
+<wsdl:input message="tns:common.Logout"/>
+<wsdl:output message="tns:common.LogoutResponse"/>
+</wsdl:operation>
+<wsdl:operation name="KeepAlive">
+<wsdl:input message="tns:common.KeepAlive"/>
+<wsdl:output message="tns:common.KeepAliveResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPCommon.ConfMgr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="scheduleConf">
+<wsdl:input message="tns:common.scheduleConf"/>
+<wsdl:output message="tns:common.scheduleConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="scheduleDynamicSiteConf">
+<wsdl:input message="tns:common.scheduleDynamicSiteConf"/>
+<wsdl:output message="tns:common.scheduleDynamicSiteConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="scheduleImmediateConf">
+<wsdl:input message="tns:common.scheduleImmediateConf"/>
+<wsdl:output message="tns:common.scheduleImmediateConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="addSiteToScheduledConf">
+<wsdl:input message="tns:common.addSiteToScheduledConf"/>
+<wsdl:output message="tns:common.addSiteToScheduledConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="delSiteFromScheduledConf">
+<wsdl:input message="tns:common.delSiteFromScheduledConf"/>
+<wsdl:output message="tns:common.delSiteFromScheduledConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="cancelScheduledConf">
+<wsdl:input message="tns:common.cancelScheduledConf"/>
+<wsdl:output message="tns:common.cancelScheduledConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="prolongScheduledConf">
+<wsdl:input message="tns:common.prolongScheduledConf"/>
+<wsdl:output message="tns:common.prolongScheduledConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="editScheduledConf">
+<wsdl:input message="tns:common.editScheduledConf"/>
+<wsdl:output message="tns:common.editScheduledConfResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryConfSitesStatus">
+<wsdl:input message="tns:common.queryConfSitesStatus"/>
+<wsdl:output message="tns:common.queryConfSitesStatusResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryConferenceStatus">
+<wsdl:input message="tns:common.queryConferenceStatus"/>
+<wsdl:output message="tns:common.queryConferenceStatusResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+
+<!--###################################### binding Start ######################################-->
+<wsdl:binding name="TPCommon.ConfCtrbinding" type="tns:TPCommon.ConfCtr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="endConf">
+<soap:operation soapAction="http://smc.huawei.com/endConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addSiteToConf">
+<soap:operation soapAction="http://smc.huawei.com/addSiteToConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="delSiteFromConf">
+<soap:operation soapAction="http://smc.huawei.com/delSiteFromConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setAudioSwitch">
+<soap:operation soapAction="http://smc.huawei.com/setAudioSwitch" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPCommon.SiteMgrbinding" type="tns:TPCommon.SiteMgr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="queryAllSites">
+<soap:operation soapAction="http://smc.huawei.com/queryAllSites" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySiteByURI">
+<soap:operation soapAction="http://smc.huawei.com/querySiteByURI" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySiteByName">
+<soap:operation soapAction="http://smc.huawei.com/querySiteByName" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySiteFreeBusy">
+<soap:operation soapAction="http://smc.huawei.com/querySiteFreeBusy" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySitesFreeBusy">
+<soap:operation soapAction="http://smc.huawei.com/querySitesFreeBusy" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySiteStatus">
+<soap:operation soapAction="http://smc.huawei.com/querySiteStatus" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPCommon.SiteCtrbinding" type="tns:TPCommon.SiteCtr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ctrlCamera">
+<soap:operation soapAction="http://smc.huawei.com/ctrlCamera" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ctrlAuxStream">
+<soap:operation soapAction="http://smc.huawei.com/ctrlAuxStream" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="micMuteSites">
+<soap:operation soapAction="http://smc.huawei.com/micMuteSites" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="spkQuietSites">
+<soap:operation soapAction="http://smc.huawei.com/spkQuietSites" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="connectSites">
+<soap:operation soapAction="http://smc.huawei.com/connectSites" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="disconnectSites">
+<soap:operation soapAction="http://smc.huawei.com/disconnectSites" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TP.Commonbinding" type="tns:TP.Common">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="LoginRequest">
+<soap:operation soapAction="http://smc.huawei.com/LoginRequest" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Authenticate">
+<soap:operation soapAction="http://smc.huawei.com/Authenticate" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Logout">
+<soap:operation soapAction="http://smc.huawei.com/Logout" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="KeepAlive">
+<soap:operation soapAction="http://smc.huawei.com/KeepAlive" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPCommon.ConfMgrbinding" type="tns:TPCommon.ConfMgr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="scheduleConf">
+<soap:operation soapAction="http://smc.huawei.com/scheduleConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="scheduleDynamicSiteConf">
+<soap:operation soapAction="http://smc.huawei.com/scheduleDynamicSiteConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="scheduleImmediateConf">
+<soap:operation soapAction="http://smc.huawei.com/scheduleImmediateConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addSiteToScheduledConf">
+<soap:operation soapAction="http://smc.huawei.com/addSiteToScheduledConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="delSiteFromScheduledConf">
+<soap:operation soapAction="http://smc.huawei.com/delSiteFromScheduledConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="cancelScheduledConf">
+<soap:operation soapAction="http://smc.huawei.com/cancelScheduledConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="prolongScheduledConf">
+<soap:operation soapAction="http://smc.huawei.com/prolongScheduledConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="editScheduledConf">
+<soap:operation soapAction="http://smc.huawei.com/editScheduledConf" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryConfSitesStatus">
+<soap:operation soapAction="http://smc.huawei.com/queryConfSitesStatus" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryConferenceStatus">
+<soap:operation soapAction="http://smc.huawei.com/queryConferenceStatus" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+
+<!--###################################### binding end ######################################-->
+<wsdl:service name="eSDKService"><wsdl:port binding="tns:TPCommon.ConfCtrbinding" name="TPCommon.ConfCtr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPCommon.SiteMgrbinding" name="TPCommon.SiteMgr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPCommon.SiteCtrbinding" name="TPCommon.SiteCtr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TP.Commonbinding" name="TP.Common">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPCommon.ConfMgrbinding" name="TPCommon.ConfMgr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

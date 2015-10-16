@@ -1,0 +1,869 @@
+<html>
+
+<head>
+</head>
+
+<body style="width: 100%;">
+	<p style="font-weight: bold;">scheduleConf interface for convening the meeting or appointment aperiodic</p>
+
+	<div>
+
+
+		<p style="font-weight: bold;">Input Parameter Description</p>
+
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="15%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="51%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>scheduleConf</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>ConferenceInfoEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>Prepare reserved conference parameters, including the venue list and venue of parameters required when booking ConferenceInfoEx parameters include: name: Conference Name, beginTime: meeting start time, rate: rate, duration: When meeting a long, sites: venue information. List which lists the parameters of the venue SiteInfoEx Required parameters: uri venue identification. (When the uri is empty, reservation anonymous meetings.)</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+		<p style="font-weight: bold;">ConferenceInfoEx</p>
+
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>confId</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Conference ID, automatically assigned by the system.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>name</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String </span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Conference name.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>beginTime</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>dateTime</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Conference start time. Formats such as: 2013-05-07T22: 46: 31.235 + 08: 00,2013-05-07T22: 46: 31.235 as Greenwich Mean Time (GMT time), + 08.00 mainland China for the time difference from GMT. The server returns the format 2013-05-07T22: 46: 31.235 + 08: 00</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>duration</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>duration</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>When the meeting length, such as: P0Y0M0DT1H0M0.000S or PT1H: represents 1 hour. Where PT is flag, YMDHMS representing the date when the minutes and seconds.
+Explanation: The maximum length must not exceed the maximum length of SMC when configured in several conference sessions.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>accessCode</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Conference access code. String must be in digital format. Such as: 075560166.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>password</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Conference access password. Supports only the digits 0 to 9. Length of six numbers, password encryption method is AES128.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>mediaEncryptType</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Media stream encryption. Described as follows:
+0: AutoEncrypt auto-negotiation is to use encryption. Conference venue based on the ability to negotiate the device. If the venue supports encryption, the media stream encryption is enabled. If the venue does not support encryption, the media stream does not enable encryption.
+1: ForceEncrypt mandatory use of encryption. If you are ready to join the conference without encryption capability, you can not join the meeting.
+2: None not encrypted. Regardless of whether the venue has encryption capabilities, media streams do not enable encryption.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>auxVideoFormat</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Auxiliary streaming video formats. Described as follows:
+0: Auto
+1: 4 CIF
+2: 720P30
+3: 1080P30
+4: 480P
+5: 720P60
+6: 1080P60
+Description: When a reservation, if you do not set this parameter, the secondary stream video format by the system automatically adapts the bandwidth according to the meeting.
+						</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>auxVideoProtocol</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Auxiliary streaming video protocol, described as follows:
+0: Auto
+1: H.261 protocol
+2: H.263 protocol
+3: H.264 protocol
+Description: When a reservation, if you do not set this parameter, the secondary video stream protocol by the system automatically adapts the bandwidth according to the meeting.
+						</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>cpResouce</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Multi-screen number of resources.
+Note: The current version can be set up over 8 screen.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>rate</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Rate. The format of "rate value k / M", such as "1920k".
+Note: If the rate is less than 64K, the system defaults to 64K, the default is more than 8M 8M, 64K and 8M intermediate values in accordance with the actual input assignments, and must be an integer value. </span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>isRecording</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Meeting whether to support the recording function, do not fill in the default does not support:
+0: Does not support
+1: Support
+Note: If you fill a (supports recording), you need to reserve a conference when the system supports recording function, and when mediaEncryptType set to 2 (not encrypted), the recording function to be able to properly use, mediaEncryptType for other values, the recording function is not supported . </span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>recorderAddr</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Taped address.
+Description: This meeting is an appointment to return property, as an input parameter does not fill the values and mediaEncryptType Required fields 2 (not encrypted).</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>isLiveBroadcast</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span> Taped live conference support functions, do not fill the default does not support:
+0: Does not support
+1: Support
+Description: If you fill a reservation meeting (support), you need the system to support the live function, when the meeting supported the broadcast, the system defaults to support the recording function (isRecording value of 1, does not require the user to fill). </span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>presentation</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Demo mode. Described as follows:
+0: The film demonstrates the way
+1: The moving image mode
+2: Shuangliu (not supported)
+Description: When a reservation, do not set this parameter, the system defaults to 0 (film demo mode). If you want to make an appointment to other ways of meeting the demo, when booking the modified parameters for the corresponding values.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>chairmanPassword</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Chairman of the meeting password or startup password. Supports only the digits 0 to 9. Length of six numbers, password encryption method is AES128.
+						</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>status</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Meeting state. Described as follows:
+0: unknown state (reserved)
+1: The meeting does not exist
+2: have an appointment
+3: The meeting has been convened
+4: The meeting has ended Description: appointments, meetings modify the parameters are invalid, this parameter as the return attribute query operations.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>billCode</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Billing code (optional).
+Description: According to the SMC side configuration assignment, currently supports digital input. </span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>sites</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>SiteInfoEx</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..n</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Venue list. </span>
+				</td>
+			</tr>
+
+		</table>
+
+		<p style="font-weight: bold;">SiteInfoEx</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>name</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Conference name.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>uri</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Venue logo. </span>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>type</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Venue type. Described as follows:
+0: invalid type
+1: automatically from the system according to the venue logo
+2: E1 type of venue
+3: ISDN type of venue
+4: H.323 type of venue
+5: PSTN type of venue
+6: 4E1 type of venue
+7: SIP type venue
+8: VoIP SIP type venue
+9: VoIP H.323 type of venue</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>from</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Source venue. Described as follows:
+0: Internal venue
+1: External venue
+2: eConference Gateway venue
+3: Lync Venue Description: The appointment of the argument as the default value if you do not modify the processing time to modify the meeting. The default is inside the venue.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>dialingMode</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Call mode. Described as follows:
+0: MCU conference call
+1: active incoming venue </span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>rate</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Rate. The format of "rate value k / M", such as "1920k".
+Description: appointment, when you modify the meeting, if you do not fill in this parameter, the default rate meeting. If the rate is less than 64K, the system defaults to 64K, the default is more than 8M 8M, 64K and 8M intermediate values in accordance with the actual input assignments, and must be an integer value. </span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoFormat</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Video formats. Described as follows:
+0: Auto
+1: 4 CIF
+2: 720P30
+3: 1080P30
+4: 480P
+5: 720P60
+6: 1080P60
+Description: When a reservation, if you do not set this parameter, the system automatically adapts the video format according to the meeting bandwidth.</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoProtocol</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Video protocol, described as follows:
+0: Auto
+1: H.261 protocol
+2: H.263 protocol
+3: H.264 protocol
+Description: When a reservation, if you do not set this parameter, the system automatically adapts the video protocol bandwidth according to the meeting. </span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>status</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>Meeting state. Described as follows:
+0: unknown state (reserved)
+1: The meeting does not exist
+2: have an appointment
+3: The meeting has been convened
+4: The meeting has ended Description: appointments, meetings modify the parameters are invalid, this parameter as the return attribute query operations. </span>
+				</td>
+			</tr>
+		</table>
+		
+		<p style="font-weight: bold;">Output parameter description</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>parameter</span>
+						</p>
+					</td>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>type</span>
+						</p>
+					</td>
+					<td width="15%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>constraint</span>
+						</p>
+					</td>
+					<td width="51%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>description</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>resultCode</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>Returns an error code, specifically as follows: 0: success other value: indicates failure</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>conferenceInfo</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>ConferenceInfoEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>Basic information meeting appointment after the success, including the system assigns conference ID, conference access code and other information.</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+
+	</div>
+
+</body>
+
+</html>

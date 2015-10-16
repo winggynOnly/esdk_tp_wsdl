@@ -1,0 +1,1 @@
+D:\gradle-1.4\bin\gradle clean useJavaC setTestOff build

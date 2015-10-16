@@ -1,0 +1,156 @@
+File configFile = new File("D:/build/temp.txt")
+String ciFlag;
+if (configFile.exists()) {
+	ciFlag = configFile.getText();
+}
+if ("Y" == ciFlag) {
+	ext.tempDir = file("$project.projectDir/../../../../../..").absolutePath
+	ext.esdkSrcRootDir = file("$tempDir/eSDK_Platform_V1R5_Server/code/current").absolutePath
+
+	apply from: "$tempDir/eSDK_Platform_V1R5_Server/code/current/eSDK_Platform_V100R005/Server/source/esdk_tools/release_package/common_methods.gradle"
+
+	allprojects {
+		apply from: "$tempDir/eSDK_Platform_V1R5_Server/code/current/eSDK_Platform_V100R005/Server/source/esdk_tools/release_package/common_allprojects.gradle"
+	}
+	subprojects {
+		apply from: "$tempDir/eSDK_Platform_V1R5_Server/code/current/eSDK_Platform_V100R005/Server/source/esdk_tools/release_package/common_subprojects.gradle"
+		
+		repositories {
+		flatDir { dirs "$tempDir/eSDK_TP_V1R5_Server/code/current/eSDK_TP_V100R005/Server/open_src/apache" }
+		flatDir { dirs "$tempDir/eSDK_TP_V1R5_Server/code/current/eSDK_TP_V100R005/Server/open_src/apache/ldap" }
+		flatDir { dirs "$tempDir/eSDK_TP_V1R5_Server/code/current/eSDK_TP_V100R005/Server/open_src/gnu" }
+		flatDir { dirs "$tempDir/eSDK_TP_V1R5_Server/code/current/eSDK_TP_V100R005/Server/open_src/microsoft/ews" }
+	}
+	}
+	
+} else {
+	ext.esdkSrcRootDir = file("$project.projectDir/../../..").absolutePath
+
+	apply from: "$esdkSrcRootDir/eSDK_Platform_V100R005/Server/source/esdk_tools/release_package/common_methods.gradle"
+
+	allprojects {
+		apply from: "$esdkSrcRootDir/eSDK_Platform_V100R005/Server/source/esdk_tools/release_package/common_allprojects.gradle"
+	}
+	subprojects {
+		apply from: "$esdkSrcRootDir/eSDK_Platform_V100R005/Server/source/esdk_tools/release_package/common_subprojects.gradle"
+		
+		repositories {
+			flatDir { dirs "$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/apache" }
+			flatDir { dirs "$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/apache/ldap" }
+			flatDir { dirs "$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/gnu" }
+			flatDir { dirs "$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/microsoft/ews" }
+		}
+	}
+}
+
+def addDependentProject(proj, cfg, jarOrProjName) {
+	if (proj.rootProject.findProject(jarOrProjName) != null) {
+		 proj.dependencies.add(cfg, this.project(":$jarOrProjName"))
+	} else {
+		proj.dependencies.add(cfg, ":$jarOrProjName")
+	}
+}
+
+task cleanTPPackage(type:Delete) {
+	ext.tempDir = "esdk_tp_business"
+	def dirList = []
+	project.fileTree(ext.tempDir).visit {element ->
+		dirList.push "$ext.tempDir/$element.path"
+	}
+	ext.tempDir = "esdk_tpoa_business"
+	project.fileTree(ext.tempDir).visit {element ->
+		dirList.push "$ext.tempDir/$element.path"
+	}
+	
+	dirList.reverseEach { String dirName ->
+		delete project.file(dirName)
+	}
+}
+task preBuildTPProject() << {
+	tasks["cleanTPPackage"].execute()
+}
+
+task makeTPProductPackage << {
+	FileTree tpTree = fileTree(".") {
+		include "**/esdk_tp*/build/distributions/*.zip"
+		include "**/esdk_tp*/build/distributions/esdksvr_*api*prof.zip"
+		exclude "**/esdk_tp*/build/distributions/*education*.zip"
+		exclude "**/esdk_tp*/build/distributions/*_oa*.zip"
+		exclude "**/esdk_tp*/build/distributions/*-oa*.zip"
+	}
+	tpTree.each {File f ->
+		copy {
+			println("->Copy file: " + f.name);
+			from f
+			into project.file('esdk_tp_business')
+		}
+	}
+}
+
+task makeTPOAProductPackage << {
+	FileTree tpTree = fileTree(".") {
+		include "**/esdk_tp*/build/distributions/*.zip"
+		exclude "**/esdk_tp*/build/distributions/*healthcare.zip"
+		exclude "**/esdk_tp*/build/distributions/*education.zip"
+		exclude "**/esdk_tp*/build/distributions/*_te30_*.zip"
+		exclude "**/esdk_tp*/build/distributions/*_vp9000_*.zip"
+		exclude "**/esdk_tp*/build/distributions/esdksvr_tp_server-nemgr_api-prof*.zip"
+	}
+	tpTree.each {File f ->
+		copy {
+			println("->Copy file: " + f.name);
+			from f
+			into project.file('esdk_tpoa_business')
+		}
+	}
+}
+
+task buildProduct << {
+	tasks["preBuildTPProject"].execute()
+	tasks["makeTPProductPackage"].execute()
+	tasks["makeTPOAProductPackage"].execute()
+}
+
+task packageTP(type:Zip) {
+	archiveName = "eSDK_TP_${project.ProductVersion}.zip"
+	from project.file("esdk_tp_business")
+	destinationDir project.file(".")
+}
+
+task packageTPOA(type:Zip) {
+	archiveName = "eSDK_TP_OA_${project.ProductVersion}.zip"
+	from project.file("esdk_tpoa_business")
+	destinationDir project.file(".")
+}
+
+task makePackage() << {
+	tasks["packageTP"].execute()
+	tasks["packageTPOA"].execute()
+	tasks["copyPackage2ReleaseDir"].execute()
+}
+
+// 对第三方库打包
+task zipComponent (type:Zip) {
+	copy {
+		from ("$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/apache"){
+			include '*.jar'
+		}
+		from ("$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/apache/ldap"){
+			include '*.jar'			
+		}
+		from ("$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/gnu"){
+			include '*.jar'
+		}
+		from ("$esdkSrcRootDir/eSDK_TP_V100R005/Server/open_src/microsoft/ews"){
+			include '*.jar'
+		}
+		
+		into project.file("build/zipTemp1/esdk/webcontent/WEB-INF/lib")
+	}
+	
+	from file("build/zipTemp1")
+	into ""
+	
+	destinationDir file("$esdkSrcRootDir/eSDK_TP_V100R005/Server/source/esdk_tp_oa/build/distributions")
+	archiveName "esdksvr-tp-oa-thirdPartyComponents.zip"
+}

@@ -1,0 +1,3 @@
+include ":esdk_tp_base", ":esdk_tp", ":esdk_tp_healthcare", ":esdk_tp_domain", ":esdk_tp_oa_siteImportTools"
+include ":esdk_tp_neadp_interface",  ":esdk_tp_neadp_smc20_v100r001c01", ":esdk_tp_neadp_smc20_v100r002c01", ":esdk_tp_neadp_smc20_v100r003c00", ":esdk_tp_neadp_smc20_v100r003c10", ":esdk_tp_neadp_te30_v100r001c01", ":esdk_tp_neadp_vp9000_v100r011c02"
+include ":esdk_tp_oa", ":esdk_tp_oa_neadp_ad_impl", ":esdk_tp_oa_neadp_exchange_impl"

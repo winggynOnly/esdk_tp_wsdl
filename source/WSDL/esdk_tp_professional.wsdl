@@ -1,0 +1,2663 @@
+<?xml version="1.0" encoding="utf-8"?><wsdl:definitions targetNamespace="http://smc.huawei.com/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://smc.huawei.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+<!--###################################### typeDefine Start ######################################-->
+<wsdl:types>
+<xsd:schema targetNamespace="http://smc.huawei.com/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><xsd:element name="scheduleConfEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="scheduleConf" type="tns:ConferenceInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleConfExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceInfo" type="tns:ConferenceInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleRecurrenceConferenceEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="scheduleConf" type="tns:RecurrenceConfInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="scheduleRecurrenceConferenceExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="recurrenceConfInfo" type="tns:RecurrenceConfInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editScheduledConfEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="editConf" type="tns:ConferenceInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editScheduledConfExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceInfo" type="tns:ConferenceInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editRecurrenceConferenceEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="editConf" type="tns:RecurrenceConfInfoEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editRecurrenceConferenceExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="recurrenceConfInfo" type="tns:RecurrenceConfInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySitesEx">
+<xsd:complexType>
+<xsd:sequence>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySitesExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteInfos" type="tns:SiteInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="prolongScheduledConfEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="beginDate" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="prolongTime" type="xsd:duration" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="prolongScheduledConfExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteStatusEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteStatusExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteFreeBusyStates" type="tns:SiteFreeBusyStatesEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConferencesStatusEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="confIds" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConferencesStatusExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="conferenceStatuses" type="tns:ConferenceStatusEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfSitesStatusEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfSitesStatusExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteStatuses" type="tns:SiteStatusEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="synchSiteStatusEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="synchSiteStatusExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteFreeBusyStates" type="tns:SiteFreeBusyStatesEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteToConfEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteInfo" type="tns:SiteInfoEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteToConfExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteAccessInfos" type="tns:SiteAccessInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delSiteFromConfEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delSiteFromConfExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="connectSitesEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="connectSitesExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="disconnectSitesEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="disconnectSitesExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delScheduledConfEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delScheduledConfExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setVideoSourceEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="videoSourceUri" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isLock" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setVideoSourceExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setAudioSwitchEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="switchGate" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isSwitch" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setAudioSwitchExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setBroadcastSiteEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isBroadcast" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setBroadcastSiteExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setBroadcastContinuousPresenceEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isBroadcast" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setBroadcastContinuousPresenceExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setSitesMuteEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isMute" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setSitesMuteExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setSitesQuietEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isQuiet" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setSitesQuietExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setContinuousPresenceEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="target" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="presenceMode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="subPics" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setContinuousPresenceExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="requestConfChairEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="chairmanUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="requestConfChairExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="releaseConfChairEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="releaseConfChairExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="requestChairEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="requestChairExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="releaseChairEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="releaseChairExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfCtrlPwdEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfCtrlPwdExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryBroadInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryBroadInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="broadInfo" type="tns:BroadInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setRecordBroadEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="action" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setRecordBroadExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setDirectBroadEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="action" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setDirectBroadExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setFloorEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setFloorExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setConfSiteVolumeEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteVolumes" type="tns:SiteVolumeEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setConfSiteVolumeExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="displayConfSiteLocalVideoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="displayConfSiteLocalVideoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="hideConfSiteLocalVideoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="hideConfSiteLocalVideoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="isConnectAuxSourceEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="isConnectAuxSourceExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="isSendAuxStreamEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="isSendAuxStreamExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="isReceiveRemAuxStrmEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="isReceiveRemAuxStrmExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setAuxStreamEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="controlCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setAuxStreamExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAuxStreamSourcesEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAuxStreamSourcesExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="auxStreams" type="tns:AuxStreamInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryVideoOutSrcStateEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryVideoOutSrcStateExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="videoSourcesInfos" type="tns:VideoSourcesInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ctrlCameraEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="cameraControl" type="tns:CameraControlEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ctrlCameraExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setMainAuxStreamSourcesEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="localMainSrcs" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="localAuxSrc" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setMainAuxStreamSourcesExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMainStreamSourcesEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMainStreamSourcesExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="auxStreams" type="tns:AuxStreamInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setVideoOutSrcEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="hdOut" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="videoSrc" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setVideoOutSrcExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteVersionInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySiteVersionInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="siteDeviceVersionInfo" type="tns:SiteDeviceVersionInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LoginRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="userName" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="clientType" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="version" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LoginRequestResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="randomSequence" type="xsd:base64Binary" />
+<xsd:element minOccurs="0" maxOccurs="1" name="hashType" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Authenticate">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="encryptPassword" type="xsd:base64Binary" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AuthenticateResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Logout">
+<xsd:complexType>
+<xsd:sequence>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LogoutResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KeepAlive">
+<xsd:complexType>
+<xsd:sequence>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KeepAliveResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMultiPointCDREx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="queryConfig" type="tns:MultiPointCDRQueryConfigEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMultiPointCDRExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="cdr" type="tns:MultiPointCDREx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="pageInfo" type="tns:PagesInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryPointToPointCDREx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="queryConfig" type="tns:PointToPointCDRQueryConfigEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryPointToPointCDRExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="cdr" type="tns:PointToPointCDREx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="pageInfo" type="tns:PagesInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAdhocConfFreeBusyEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="confAccessCodes" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAdhocConfFreeBusyExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="freebusy" type="tns:AdhocConfFreeBusyStateEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="synchAdhocConfFreeBusyEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="confAccessCodes" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="synchAdhocConfFreeBusyExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="freebusy" type="tns:AdhocConfFreeBusyStateEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAdhocConferencesEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="queryConfig" type="tns:QueryConfigEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryAdhocConferencesExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="adhocConferences" type="tns:AdhocConferenceEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="pageInfo" type="tns:PagesInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfSiteMCUEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryConfSiteMCUExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="mcus" type="tns:SiteMCUEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getContinuousPresenceInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getContinuousPresenceInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="targets" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="cpResource" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="supportCPModes" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getContinuousPresenceParamEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="target" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getContinuousPresenceParamExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="presenceMode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="subPics" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="lockPresentationEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="lockPresentationExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="unlockPresentationEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="unlockPresentationExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="orgId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteInfo" type="tns:TerminalInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addSiteInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editSiteInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteInfo" type="tns:TerminalInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editSiteInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="deleteSiteInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="siteUris" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="deleteSiteInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySitesInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="queryConfig" type="tns:QueryConfigEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="querySitesInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="sites" type="tns:TerminalInfoEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="pageInfo" type="tns:PagesInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMCUInfoEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="queryConfig" type="tns:QueryConfigEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMCUInfoExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="mcus" type="tns:MCUInfoEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="pageInfo" type="tns:PagesInfoEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMCUFutureResourceEx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="mcus" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryMCUFutureResourceExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="mcuResList" type="tns:MCUResourceEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryOrganizationEx">
+<xsd:complexType>
+<xsd:sequence>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="queryOrganizationExResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resultCode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="orgs" type="tns:OrganizationItemEx" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:complexType name="ConferenceInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="0" maxOccurs="1" name="duration" type="xsd:duration" />
+<xsd:element minOccurs="0" maxOccurs="1" name="accessCode" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="password" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="chairmanPassword" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="mediaEncryptType" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="auxVideoFormat" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="auxVideoProtocol" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="cpResouce" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="rate" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isRecording" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="recorderAddr" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isLiveBroadcast" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="presentation" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="status" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="billCode" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="sites" type="tns:SiteInfoEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="mainSiteUri" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="conferenceNotice" type="tns:ConferenceNoticeEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="uri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="type" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="from" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="dialingMode" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="rate" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="videoFormat" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="videoProtocol" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isLockVideoSource" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="participantType" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="status" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="RecurrenceConfInfoEx">
+<xsd:complexContent>
+<xsd:extension base="tns:ConferenceInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="frequency" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="interval" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="weekDays" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="weekDay" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="timeZone" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="monthDay" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="count" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="endDate" type="xsd:dateTime" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="siteAccessInfos" type="tns:SiteAccessInfoEx" />
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="ConferenceStatusEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="id" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="status" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="chair" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="broadcast" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="speaking" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="presentation" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isLock" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isAudioSwitch" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="switchGate" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="endTime" type="xsd:dateTime" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isLockPresentation" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="lockPresentation" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteStatusEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="uri" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="status" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="volume" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="videoSource" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isMute" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="isQuiet" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="type" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="isLocalVideoOpen" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="callFailedReason" type="tns:ErrorInfoEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="participantType" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="screens" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="FreeBusyStateEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="startTime" type="xsd:dateTime" />
+<xsd:element minOccurs="0" maxOccurs="1" name="span" type="xsd:duration" />
+<xsd:element minOccurs="1" maxOccurs="1" name="state" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="confName" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="CameraControlEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="camState" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="camAction" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="camPos" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="camSrc" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="BroadInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="directBroad" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="recordBroad" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="directBroadStatus" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="recordBroadStatus" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="VideoSourcesInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="sourcesId" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="sourcesState" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="sourcesName" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AuxStreamInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="name" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteFreeBusyStatesEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="uri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="states" type="tns:FreeBusyStateEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteAccessInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="uri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="confAccessCode" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="0" maxOccurs="1" name="mcuUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteDeviceVersionInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="model" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="license" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="softVersion" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="hardVersion" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="logicVersion" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="micVersions" type="tns:SiteMicVersionMapEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="manufacturer" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteMicVersionMapEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="micIP" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="version" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ConfRecordAddrEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="recordAddr" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteVolumeEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="volume" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ErrorInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="errCode" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="discription" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="QueryConfigEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="sortItems" type="tns:SortItemEx" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="filters" type="tns:FilterBaseEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="focusItem" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="pageParam" type="tns:PageParamEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SortItemEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="sort" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="itemIndex" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="FilterBaseEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="columnIndex" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="PageParamEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="numberPerPage" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="currentPage" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="StringFilterEx">
+<xsd:complexContent>
+<xsd:extension base="tns:FilterBaseEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="value" type="xsd:string" />
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="IntFilterEx">
+<xsd:complexContent>
+<xsd:extension base="tns:FilterBaseEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="greaterThan" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="lessThan" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="equalTo" type="xsd:int" />
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="DoubleFilterEx">
+<xsd:complexContent>
+<xsd:extension base="tns:FilterBaseEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="greaterThan" type="xsd:double" />
+<xsd:element minOccurs="1" maxOccurs="1" name="lessThan" type="xsd:double" />
+<xsd:element minOccurs="1" maxOccurs="1" name="equalTo" type="xsd:double" />
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="DateTimeFilterEx">
+<xsd:complexContent>
+<xsd:extension base="tns:FilterBaseEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="greaterThan" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="lessThan" type="xsd:dateTime" />
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="IPAddressFilterEx">
+<xsd:complexContent>
+<xsd:extension base="tns:FilterBaseEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="value" type="tns:IPAddressEx" />
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="IPAddressEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="ipAddress" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ConferenceNoticeEx">
+<xsd:sequence>
+<xsd:element minOccurs="0" maxOccurs="1" name="Email" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="Content" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="MultiPointCDRQueryConfigEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+<xsd:element minOccurs="0" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="pageParam" type="tns:PageParamEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="MultiPointCDREx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteName" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteType" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="participantType" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="rate" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="startTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="endTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="conferenceName" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="conferenceId" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="conferenceCreater" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="billCode" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="PagesInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="totalPages" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="currentPage" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="totalRecords" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="PointToPointCDRQueryConfigEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+<xsd:element minOccurs="0" maxOccurs="1" name="endPoint" type="tns:CallEndPointEx" />
+<xsd:element minOccurs="1" maxOccurs="1" name="pageParam" type="tns:PageParamEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="CallEndPointEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="type" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="PointToPointCDREx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="callingUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="callingProtocol" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="calledUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="calledProtocol" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="rate" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="startTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="endTime" type="xsd:dateTime" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AdhocConfFreeBusyStateEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="confAccessCode" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="freebusys" type="tns:FreeBusyStateEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AdhocConferenceEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="confAccessCode" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SiteMCUEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="siteUri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="mcuId" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TerminalInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="uri" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="type" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="rate" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="videoCapbility" type="tns:VideoCapbilityItemEx" />
+<xsd:element minOccurs="0" maxOccurs="1" name="regUser" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="regPassword" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="VideoCapbilityItemEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="videoProtocol" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="videoFormat" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="MCUInfoEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="name" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="type" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="ip1" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="port1" type="xsd:int" />
+<xsd:element minOccurs="0" maxOccurs="1" name="ip2" type="xsd:string" />
+<xsd:element minOccurs="0" maxOccurs="1" name="port2" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="domainName" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="stutas" type="xsd:int" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="MCUResourceEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="mcuId" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="resourceList" type="tns:MCUResourceItemEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="MCUResourceItemEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="resourceType" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="unbounded" name="resourceStatus" type="tns:ResourceOccupiedStatusEx" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ResourceOccupiedStatusEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="freeCount" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="totalCount" type="xsd:int" />
+<xsd:element minOccurs="1" maxOccurs="1" name="beginTime" type="xsd:dateTime" />
+<xsd:element minOccurs="1" maxOccurs="1" name="duration" type="xsd:duration" />
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="OrganizationItemEx">
+<xsd:sequence>
+<xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:string" />
+<xsd:element minOccurs="1" maxOccurs="1" name="name" type="xsd:string" />
+</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>
+</wsdl:types>
+
+<!--###################################### InterfaceDefine Start ######################################-->
+<wsdl:message name="professional.scheduleConfEx">
+<wsdl:part name="parameters" element="tns:scheduleConfEx" /></wsdl:message>
+<wsdl:message name="professional.scheduleConfExResponse">
+<wsdl:part name="parameters" element="tns:scheduleConfExResponse" /></wsdl:message>
+<wsdl:message name="professional.scheduleRecurrenceConferenceEx">
+<wsdl:part name="parameters" element="tns:scheduleRecurrenceConferenceEx" /></wsdl:message>
+<wsdl:message name="professional.scheduleRecurrenceConferenceExResponse">
+<wsdl:part name="parameters" element="tns:scheduleRecurrenceConferenceExResponse" /></wsdl:message>
+<wsdl:message name="professional.editScheduledConfEx">
+<wsdl:part name="parameters" element="tns:editScheduledConfEx" /></wsdl:message>
+<wsdl:message name="professional.editScheduledConfExResponse">
+<wsdl:part name="parameters" element="tns:editScheduledConfExResponse" /></wsdl:message>
+<wsdl:message name="professional.editRecurrenceConferenceEx">
+<wsdl:part name="parameters" element="tns:editRecurrenceConferenceEx" /></wsdl:message>
+<wsdl:message name="professional.editRecurrenceConferenceExResponse">
+<wsdl:part name="parameters" element="tns:editRecurrenceConferenceExResponse" /></wsdl:message>
+<wsdl:message name="professional.querySitesEx">
+<wsdl:part name="parameters" element="tns:querySitesEx" /></wsdl:message>
+<wsdl:message name="professional.querySitesExResponse">
+<wsdl:part name="parameters" element="tns:querySitesExResponse" /></wsdl:message>
+<wsdl:message name="professional.prolongScheduledConfEx">
+<wsdl:part name="parameters" element="tns:prolongScheduledConfEx" /></wsdl:message>
+<wsdl:message name="professional.prolongScheduledConfExResponse">
+<wsdl:part name="parameters" element="tns:prolongScheduledConfExResponse" /></wsdl:message>
+<wsdl:message name="professional.querySiteStatusEx">
+<wsdl:part name="parameters" element="tns:querySiteStatusEx" /></wsdl:message>
+<wsdl:message name="professional.querySiteStatusExResponse">
+<wsdl:part name="parameters" element="tns:querySiteStatusExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryConferencesStatusEx">
+<wsdl:part name="parameters" element="tns:queryConferencesStatusEx" /></wsdl:message>
+<wsdl:message name="professional.queryConferencesStatusExResponse">
+<wsdl:part name="parameters" element="tns:queryConferencesStatusExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryConfSitesStatusEx">
+<wsdl:part name="parameters" element="tns:queryConfSitesStatusEx" /></wsdl:message>
+<wsdl:message name="professional.queryConfSitesStatusExResponse">
+<wsdl:part name="parameters" element="tns:queryConfSitesStatusExResponse" /></wsdl:message>
+<wsdl:message name="professional.synchSiteStatusEx">
+<wsdl:part name="parameters" element="tns:synchSiteStatusEx" /></wsdl:message>
+<wsdl:message name="professional.synchSiteStatusExResponse">
+<wsdl:part name="parameters" element="tns:synchSiteStatusExResponse" /></wsdl:message>
+<wsdl:message name="professional.addSiteToConfEx">
+<wsdl:part name="parameters" element="tns:addSiteToConfEx" /></wsdl:message>
+<wsdl:message name="professional.addSiteToConfExResponse">
+<wsdl:part name="parameters" element="tns:addSiteToConfExResponse" /></wsdl:message>
+<wsdl:message name="professional.delSiteFromConfEx">
+<wsdl:part name="parameters" element="tns:delSiteFromConfEx" /></wsdl:message>
+<wsdl:message name="professional.delSiteFromConfExResponse">
+<wsdl:part name="parameters" element="tns:delSiteFromConfExResponse" /></wsdl:message>
+<wsdl:message name="professional.connectSitesEx">
+<wsdl:part name="parameters" element="tns:connectSitesEx" /></wsdl:message>
+<wsdl:message name="professional.connectSitesExResponse">
+<wsdl:part name="parameters" element="tns:connectSitesExResponse" /></wsdl:message>
+<wsdl:message name="professional.disconnectSitesEx">
+<wsdl:part name="parameters" element="tns:disconnectSitesEx" /></wsdl:message>
+<wsdl:message name="professional.disconnectSitesExResponse">
+<wsdl:part name="parameters" element="tns:disconnectSitesExResponse" /></wsdl:message>
+<wsdl:message name="professional.delScheduledConfEx">
+<wsdl:part name="parameters" element="tns:delScheduledConfEx" /></wsdl:message>
+<wsdl:message name="professional.delScheduledConfExResponse">
+<wsdl:part name="parameters" element="tns:delScheduledConfExResponse" /></wsdl:message>
+<wsdl:message name="professional.setVideoSourceEx">
+<wsdl:part name="parameters" element="tns:setVideoSourceEx" /></wsdl:message>
+<wsdl:message name="professional.setVideoSourceExResponse">
+<wsdl:part name="parameters" element="tns:setVideoSourceExResponse" /></wsdl:message>
+<wsdl:message name="professional.setAudioSwitchEx">
+<wsdl:part name="parameters" element="tns:setAudioSwitchEx" /></wsdl:message>
+<wsdl:message name="professional.setAudioSwitchExResponse">
+<wsdl:part name="parameters" element="tns:setAudioSwitchExResponse" /></wsdl:message>
+<wsdl:message name="professional.setBroadcastSiteEx">
+<wsdl:part name="parameters" element="tns:setBroadcastSiteEx" /></wsdl:message>
+<wsdl:message name="professional.setBroadcastSiteExResponse">
+<wsdl:part name="parameters" element="tns:setBroadcastSiteExResponse" /></wsdl:message>
+<wsdl:message name="professional.setBroadcastContinuousPresenceEx">
+<wsdl:part name="parameters" element="tns:setBroadcastContinuousPresenceEx" /></wsdl:message>
+<wsdl:message name="professional.setBroadcastContinuousPresenceExResponse">
+<wsdl:part name="parameters" element="tns:setBroadcastContinuousPresenceExResponse" /></wsdl:message>
+<wsdl:message name="professional.setSitesMuteEx">
+<wsdl:part name="parameters" element="tns:setSitesMuteEx" /></wsdl:message>
+<wsdl:message name="professional.setSitesMuteExResponse">
+<wsdl:part name="parameters" element="tns:setSitesMuteExResponse" /></wsdl:message>
+<wsdl:message name="professional.setSitesQuietEx">
+<wsdl:part name="parameters" element="tns:setSitesQuietEx" /></wsdl:message>
+<wsdl:message name="professional.setSitesQuietExResponse">
+<wsdl:part name="parameters" element="tns:setSitesQuietExResponse" /></wsdl:message>
+<wsdl:message name="professional.setContinuousPresenceEx">
+<wsdl:part name="parameters" element="tns:setContinuousPresenceEx" /></wsdl:message>
+<wsdl:message name="professional.setContinuousPresenceExResponse">
+<wsdl:part name="parameters" element="tns:setContinuousPresenceExResponse" /></wsdl:message>
+<wsdl:message name="professional.requestConfChairEx">
+<wsdl:part name="parameters" element="tns:requestConfChairEx" /></wsdl:message>
+<wsdl:message name="professional.requestConfChairExResponse">
+<wsdl:part name="parameters" element="tns:requestConfChairExResponse" /></wsdl:message>
+<wsdl:message name="professional.releaseConfChairEx">
+<wsdl:part name="parameters" element="tns:releaseConfChairEx" /></wsdl:message>
+<wsdl:message name="professional.releaseConfChairExResponse">
+<wsdl:part name="parameters" element="tns:releaseConfChairExResponse" /></wsdl:message>
+<wsdl:message name="professional.requestChairEx">
+<wsdl:part name="parameters" element="tns:requestChairEx" /></wsdl:message>
+<wsdl:message name="professional.requestChairExResponse">
+<wsdl:part name="parameters" element="tns:requestChairExResponse" /></wsdl:message>
+<wsdl:message name="professional.releaseChairEx">
+<wsdl:part name="parameters" element="tns:releaseChairEx" /></wsdl:message>
+<wsdl:message name="professional.releaseChairExResponse">
+<wsdl:part name="parameters" element="tns:releaseChairExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryConfCtrlPwdEx">
+<wsdl:part name="parameters" element="tns:queryConfCtrlPwdEx" /></wsdl:message>
+<wsdl:message name="professional.queryConfCtrlPwdExResponse">
+<wsdl:part name="parameters" element="tns:queryConfCtrlPwdExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryBroadInfoEx">
+<wsdl:part name="parameters" element="tns:queryBroadInfoEx" /></wsdl:message>
+<wsdl:message name="professional.queryBroadInfoExResponse">
+<wsdl:part name="parameters" element="tns:queryBroadInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.setRecordBroadEx">
+<wsdl:part name="parameters" element="tns:setRecordBroadEx" /></wsdl:message>
+<wsdl:message name="professional.setRecordBroadExResponse">
+<wsdl:part name="parameters" element="tns:setRecordBroadExResponse" /></wsdl:message>
+<wsdl:message name="professional.setDirectBroadEx">
+<wsdl:part name="parameters" element="tns:setDirectBroadEx" /></wsdl:message>
+<wsdl:message name="professional.setDirectBroadExResponse">
+<wsdl:part name="parameters" element="tns:setDirectBroadExResponse" /></wsdl:message>
+<wsdl:message name="professional.setFloorEx">
+<wsdl:part name="parameters" element="tns:setFloorEx" /></wsdl:message>
+<wsdl:message name="professional.setFloorExResponse">
+<wsdl:part name="parameters" element="tns:setFloorExResponse" /></wsdl:message>
+<wsdl:message name="professional.setConfSiteVolumeEx">
+<wsdl:part name="parameters" element="tns:setConfSiteVolumeEx" /></wsdl:message>
+<wsdl:message name="professional.setConfSiteVolumeExResponse">
+<wsdl:part name="parameters" element="tns:setConfSiteVolumeExResponse" /></wsdl:message>
+<wsdl:message name="professional.displayConfSiteLocalVideoEx">
+<wsdl:part name="parameters" element="tns:displayConfSiteLocalVideoEx" /></wsdl:message>
+<wsdl:message name="professional.displayConfSiteLocalVideoExResponse">
+<wsdl:part name="parameters" element="tns:displayConfSiteLocalVideoExResponse" /></wsdl:message>
+<wsdl:message name="professional.hideConfSiteLocalVideoEx">
+<wsdl:part name="parameters" element="tns:hideConfSiteLocalVideoEx" /></wsdl:message>
+<wsdl:message name="professional.hideConfSiteLocalVideoExResponse">
+<wsdl:part name="parameters" element="tns:hideConfSiteLocalVideoExResponse" /></wsdl:message>
+<wsdl:message name="professional.isConnectAuxSourceEx">
+<wsdl:part name="parameters" element="tns:isConnectAuxSourceEx" /></wsdl:message>
+<wsdl:message name="professional.isConnectAuxSourceExResponse">
+<wsdl:part name="parameters" element="tns:isConnectAuxSourceExResponse" /></wsdl:message>
+<wsdl:message name="professional.isSendAuxStreamEx">
+<wsdl:part name="parameters" element="tns:isSendAuxStreamEx" /></wsdl:message>
+<wsdl:message name="professional.isSendAuxStreamExResponse">
+<wsdl:part name="parameters" element="tns:isSendAuxStreamExResponse" /></wsdl:message>
+<wsdl:message name="professional.isReceiveRemAuxStrmEx">
+<wsdl:part name="parameters" element="tns:isReceiveRemAuxStrmEx" /></wsdl:message>
+<wsdl:message name="professional.isReceiveRemAuxStrmExResponse">
+<wsdl:part name="parameters" element="tns:isReceiveRemAuxStrmExResponse" /></wsdl:message>
+<wsdl:message name="professional.setAuxStreamEx">
+<wsdl:part name="parameters" element="tns:setAuxStreamEx" /></wsdl:message>
+<wsdl:message name="professional.setAuxStreamExResponse">
+<wsdl:part name="parameters" element="tns:setAuxStreamExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryAuxStreamSourcesEx">
+<wsdl:part name="parameters" element="tns:queryAuxStreamSourcesEx" /></wsdl:message>
+<wsdl:message name="professional.queryAuxStreamSourcesExResponse">
+<wsdl:part name="parameters" element="tns:queryAuxStreamSourcesExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryVideoOutSrcStateEx">
+<wsdl:part name="parameters" element="tns:queryVideoOutSrcStateEx" /></wsdl:message>
+<wsdl:message name="professional.queryVideoOutSrcStateExResponse">
+<wsdl:part name="parameters" element="tns:queryVideoOutSrcStateExResponse" /></wsdl:message>
+<wsdl:message name="professional.ctrlCameraEx">
+<wsdl:part name="parameters" element="tns:ctrlCameraEx" /></wsdl:message>
+<wsdl:message name="professional.ctrlCameraExResponse">
+<wsdl:part name="parameters" element="tns:ctrlCameraExResponse" /></wsdl:message>
+<wsdl:message name="professional.setMainAuxStreamSourcesEx">
+<wsdl:part name="parameters" element="tns:setMainAuxStreamSourcesEx" /></wsdl:message>
+<wsdl:message name="professional.setMainAuxStreamSourcesExResponse">
+<wsdl:part name="parameters" element="tns:setMainAuxStreamSourcesExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryMainStreamSourcesEx">
+<wsdl:part name="parameters" element="tns:queryMainStreamSourcesEx" /></wsdl:message>
+<wsdl:message name="professional.queryMainStreamSourcesExResponse">
+<wsdl:part name="parameters" element="tns:queryMainStreamSourcesExResponse" /></wsdl:message>
+<wsdl:message name="professional.setVideoOutSrcEx">
+<wsdl:part name="parameters" element="tns:setVideoOutSrcEx" /></wsdl:message>
+<wsdl:message name="professional.setVideoOutSrcExResponse">
+<wsdl:part name="parameters" element="tns:setVideoOutSrcExResponse" /></wsdl:message>
+<wsdl:message name="professional.querySiteVersionInfoEx">
+<wsdl:part name="parameters" element="tns:querySiteVersionInfoEx" /></wsdl:message>
+<wsdl:message name="professional.querySiteVersionInfoExResponse">
+<wsdl:part name="parameters" element="tns:querySiteVersionInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.LoginRequest">
+<wsdl:part name="parameters" element="tns:LoginRequest" /></wsdl:message>
+<wsdl:message name="professional.LoginRequestResponse">
+<wsdl:part name="parameters" element="tns:LoginRequestResponse" /></wsdl:message>
+<wsdl:message name="professional.Authenticate">
+<wsdl:part name="parameters" element="tns:Authenticate" /></wsdl:message>
+<wsdl:message name="professional.AuthenticateResponse">
+<wsdl:part name="parameters" element="tns:AuthenticateResponse" /></wsdl:message>
+<wsdl:message name="professional.Logout">
+<wsdl:part name="parameters" element="tns:Logout" /></wsdl:message>
+<wsdl:message name="professional.LogoutResponse">
+<wsdl:part name="parameters" element="tns:LogoutResponse" /></wsdl:message>
+<wsdl:message name="professional.KeepAlive">
+<wsdl:part name="parameters" element="tns:KeepAlive" /></wsdl:message>
+<wsdl:message name="professional.KeepAliveResponse">
+<wsdl:part name="parameters" element="tns:KeepAliveResponse" /></wsdl:message>
+<wsdl:message name="professional.queryMultiPointCDREx">
+<wsdl:part name="parameters" element="tns:queryMultiPointCDREx" /></wsdl:message>
+<wsdl:message name="professional.queryMultiPointCDRExResponse">
+<wsdl:part name="parameters" element="tns:queryMultiPointCDRExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryPointToPointCDREx">
+<wsdl:part name="parameters" element="tns:queryPointToPointCDREx" /></wsdl:message>
+<wsdl:message name="professional.queryPointToPointCDRExResponse">
+<wsdl:part name="parameters" element="tns:queryPointToPointCDRExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryAdhocConfFreeBusyEx">
+<wsdl:part name="parameters" element="tns:queryAdhocConfFreeBusyEx" /></wsdl:message>
+<wsdl:message name="professional.queryAdhocConfFreeBusyExResponse">
+<wsdl:part name="parameters" element="tns:queryAdhocConfFreeBusyExResponse" /></wsdl:message>
+<wsdl:message name="professional.synchAdhocConfFreeBusyEx">
+<wsdl:part name="parameters" element="tns:synchAdhocConfFreeBusyEx" /></wsdl:message>
+<wsdl:message name="professional.synchAdhocConfFreeBusyExResponse">
+<wsdl:part name="parameters" element="tns:synchAdhocConfFreeBusyExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryAdhocConferencesEx">
+<wsdl:part name="parameters" element="tns:queryAdhocConferencesEx" /></wsdl:message>
+<wsdl:message name="professional.queryAdhocConferencesExResponse">
+<wsdl:part name="parameters" element="tns:queryAdhocConferencesExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryConfSiteMCUEx">
+<wsdl:part name="parameters" element="tns:queryConfSiteMCUEx" /></wsdl:message>
+<wsdl:message name="professional.queryConfSiteMCUExResponse">
+<wsdl:part name="parameters" element="tns:queryConfSiteMCUExResponse" /></wsdl:message>
+<wsdl:message name="professional.getContinuousPresenceInfoEx">
+<wsdl:part name="parameters" element="tns:getContinuousPresenceInfoEx" /></wsdl:message>
+<wsdl:message name="professional.getContinuousPresenceInfoExResponse">
+<wsdl:part name="parameters" element="tns:getContinuousPresenceInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.getContinuousPresenceParamEx">
+<wsdl:part name="parameters" element="tns:getContinuousPresenceParamEx" /></wsdl:message>
+<wsdl:message name="professional.getContinuousPresenceParamExResponse">
+<wsdl:part name="parameters" element="tns:getContinuousPresenceParamExResponse" /></wsdl:message>
+<wsdl:message name="professional.lockPresentationEx">
+<wsdl:part name="parameters" element="tns:lockPresentationEx" /></wsdl:message>
+<wsdl:message name="professional.lockPresentationExResponse">
+<wsdl:part name="parameters" element="tns:lockPresentationExResponse" /></wsdl:message>
+<wsdl:message name="professional.unlockPresentationEx">
+<wsdl:part name="parameters" element="tns:unlockPresentationEx" /></wsdl:message>
+<wsdl:message name="professional.unlockPresentationExResponse">
+<wsdl:part name="parameters" element="tns:unlockPresentationExResponse" /></wsdl:message>
+<wsdl:message name="professional.addSiteInfoEx">
+<wsdl:part name="parameters" element="tns:addSiteInfoEx" /></wsdl:message>
+<wsdl:message name="professional.addSiteInfoExResponse">
+<wsdl:part name="parameters" element="tns:addSiteInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.editSiteInfoEx">
+<wsdl:part name="parameters" element="tns:editSiteInfoEx" /></wsdl:message>
+<wsdl:message name="professional.editSiteInfoExResponse">
+<wsdl:part name="parameters" element="tns:editSiteInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.deleteSiteInfoEx">
+<wsdl:part name="parameters" element="tns:deleteSiteInfoEx" /></wsdl:message>
+<wsdl:message name="professional.deleteSiteInfoExResponse">
+<wsdl:part name="parameters" element="tns:deleteSiteInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.querySitesInfoEx">
+<wsdl:part name="parameters" element="tns:querySitesInfoEx" /></wsdl:message>
+<wsdl:message name="professional.querySitesInfoExResponse">
+<wsdl:part name="parameters" element="tns:querySitesInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryMCUInfoEx">
+<wsdl:part name="parameters" element="tns:queryMCUInfoEx" /></wsdl:message>
+<wsdl:message name="professional.queryMCUInfoExResponse">
+<wsdl:part name="parameters" element="tns:queryMCUInfoExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryMCUFutureResourceEx">
+<wsdl:part name="parameters" element="tns:queryMCUFutureResourceEx" /></wsdl:message>
+<wsdl:message name="professional.queryMCUFutureResourceExResponse">
+<wsdl:part name="parameters" element="tns:queryMCUFutureResourceExResponse" /></wsdl:message>
+<wsdl:message name="professional.queryOrganizationEx">
+<wsdl:part name="parameters" element="tns:queryOrganizationEx" /></wsdl:message>
+<wsdl:message name="professional.queryOrganizationExResponse">
+<wsdl:part name="parameters" element="tns:queryOrganizationExResponse" /></wsdl:message>
+
+<!--###################################### portType Start ######################################-->
+<wsdl:portType name="TPProfessional.MCUMgr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="queryMCUInfoEx">
+<wsdl:input message="tns:professional.queryMCUInfoEx"/>
+<wsdl:output message="tns:professional.queryMCUInfoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryMCUFutureResourceEx">
+<wsdl:input message="tns:professional.queryMCUFutureResourceEx"/>
+<wsdl:output message="tns:professional.queryMCUFutureResourceExResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPProfessional.SiteMgr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="isConnectAuxSourceEx">
+<wsdl:input message="tns:professional.isConnectAuxSourceEx"/>
+<wsdl:output message="tns:professional.isConnectAuxSourceExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="isSendAuxStreamEx">
+<wsdl:input message="tns:professional.isSendAuxStreamEx"/>
+<wsdl:output message="tns:professional.isSendAuxStreamExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="isReceiveRemAuxStrmEx">
+<wsdl:input message="tns:professional.isReceiveRemAuxStrmEx"/>
+<wsdl:output message="tns:professional.isReceiveRemAuxStrmExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setAuxStreamEx">
+<wsdl:input message="tns:professional.setAuxStreamEx"/>
+<wsdl:output message="tns:professional.setAuxStreamExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryAuxStreamSourcesEx">
+<wsdl:input message="tns:professional.queryAuxStreamSourcesEx"/>
+<wsdl:output message="tns:professional.queryAuxStreamSourcesExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryVideoOutSrcStateEx">
+<wsdl:input message="tns:professional.queryVideoOutSrcStateEx"/>
+<wsdl:output message="tns:professional.queryVideoOutSrcStateExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="ctrlCameraEx">
+<wsdl:input message="tns:professional.ctrlCameraEx"/>
+<wsdl:output message="tns:professional.ctrlCameraExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setMainAuxStreamSourcesEx">
+<wsdl:input message="tns:professional.setMainAuxStreamSourcesEx"/>
+<wsdl:output message="tns:professional.setMainAuxStreamSourcesExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryMainStreamSourcesEx">
+<wsdl:input message="tns:professional.queryMainStreamSourcesEx"/>
+<wsdl:output message="tns:professional.queryMainStreamSourcesExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setVideoOutSrcEx">
+<wsdl:input message="tns:professional.setVideoOutSrcEx"/>
+<wsdl:output message="tns:professional.setVideoOutSrcExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySiteVersionInfoEx">
+<wsdl:input message="tns:professional.querySiteVersionInfoEx"/>
+<wsdl:output message="tns:professional.querySiteVersionInfoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="addSiteInfoEx">
+<wsdl:input message="tns:professional.addSiteInfoEx"/>
+<wsdl:output message="tns:professional.addSiteInfoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="editSiteInfoEx">
+<wsdl:input message="tns:professional.editSiteInfoEx"/>
+<wsdl:output message="tns:professional.editSiteInfoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="deleteSiteInfoEx">
+<wsdl:input message="tns:professional.deleteSiteInfoEx"/>
+<wsdl:output message="tns:professional.deleteSiteInfoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySitesInfoEx">
+<wsdl:input message="tns:professional.querySitesInfoEx"/>
+<wsdl:output message="tns:professional.querySitesInfoExResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPProfessional.TerminalConfCtr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="requestChairEx">
+<wsdl:input message="tns:professional.requestChairEx"/>
+<wsdl:output message="tns:professional.requestChairExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="releaseChairEx">
+<wsdl:input message="tns:professional.releaseChairEx"/>
+<wsdl:output message="tns:professional.releaseChairExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryConfCtrlPwdEx">
+<wsdl:input message="tns:professional.queryConfCtrlPwdEx"/>
+<wsdl:output message="tns:professional.queryConfCtrlPwdExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryBroadInfoEx">
+<wsdl:input message="tns:professional.queryBroadInfoEx"/>
+<wsdl:output message="tns:professional.queryBroadInfoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setRecordBroadEx">
+<wsdl:input message="tns:professional.setRecordBroadEx"/>
+<wsdl:output message="tns:professional.setRecordBroadExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setDirectBroadEx">
+<wsdl:input message="tns:professional.setDirectBroadEx"/>
+<wsdl:output message="tns:professional.setDirectBroadExResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPProfessional.OrgaMgr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="queryOrganizationEx">
+<wsdl:input message="tns:professional.queryOrganizationEx"/>
+<wsdl:output message="tns:professional.queryOrganizationExResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TP.Common">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="LoginRequest">
+<wsdl:input message="tns:professional.LoginRequest"/>
+<wsdl:output message="tns:professional.LoginRequestResponse"/>
+</wsdl:operation>
+<wsdl:operation name="Authenticate">
+<wsdl:input message="tns:professional.Authenticate"/>
+<wsdl:output message="tns:professional.AuthenticateResponse"/>
+</wsdl:operation>
+<wsdl:operation name="Logout">
+<wsdl:input message="tns:professional.Logout"/>
+<wsdl:output message="tns:professional.LogoutResponse"/>
+</wsdl:operation>
+<wsdl:operation name="KeepAlive">
+<wsdl:input message="tns:professional.KeepAlive"/>
+<wsdl:output message="tns:professional.KeepAliveResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPProfessional.ConfMgr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="scheduleConfEx">
+<wsdl:input message="tns:professional.scheduleConfEx"/>
+<wsdl:output message="tns:professional.scheduleConfExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="scheduleRecurrenceConferenceEx">
+<wsdl:input message="tns:professional.scheduleRecurrenceConferenceEx"/>
+<wsdl:output message="tns:professional.scheduleRecurrenceConferenceExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="editScheduledConfEx">
+<wsdl:input message="tns:professional.editScheduledConfEx"/>
+<wsdl:output message="tns:professional.editScheduledConfExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="editRecurrenceConferenceEx">
+<wsdl:input message="tns:professional.editRecurrenceConferenceEx"/>
+<wsdl:output message="tns:professional.editRecurrenceConferenceExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySitesEx">
+<wsdl:input message="tns:professional.querySitesEx"/>
+<wsdl:output message="tns:professional.querySitesExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="prolongScheduledConfEx">
+<wsdl:input message="tns:professional.prolongScheduledConfEx"/>
+<wsdl:output message="tns:professional.prolongScheduledConfExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="querySiteStatusEx">
+<wsdl:input message="tns:professional.querySiteStatusEx"/>
+<wsdl:output message="tns:professional.querySiteStatusExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryConferencesStatusEx">
+<wsdl:input message="tns:professional.queryConferencesStatusEx"/>
+<wsdl:output message="tns:professional.queryConferencesStatusExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryConfSitesStatusEx">
+<wsdl:input message="tns:professional.queryConfSitesStatusEx"/>
+<wsdl:output message="tns:professional.queryConfSitesStatusExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="synchSiteStatusEx">
+<wsdl:input message="tns:professional.synchSiteStatusEx"/>
+<wsdl:output message="tns:professional.synchSiteStatusExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="addSiteToConfEx">
+<wsdl:input message="tns:professional.addSiteToConfEx"/>
+<wsdl:output message="tns:professional.addSiteToConfExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="delSiteFromConfEx">
+<wsdl:input message="tns:professional.delSiteFromConfEx"/>
+<wsdl:output message="tns:professional.delSiteFromConfExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="connectSitesEx">
+<wsdl:input message="tns:professional.connectSitesEx"/>
+<wsdl:output message="tns:professional.connectSitesExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="disconnectSitesEx">
+<wsdl:input message="tns:professional.disconnectSitesEx"/>
+<wsdl:output message="tns:professional.disconnectSitesExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="delScheduledConfEx">
+<wsdl:input message="tns:professional.delScheduledConfEx"/>
+<wsdl:output message="tns:professional.delScheduledConfExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryMultiPointCDREx">
+<wsdl:input message="tns:professional.queryMultiPointCDREx"/>
+<wsdl:output message="tns:professional.queryMultiPointCDRExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryPointToPointCDREx">
+<wsdl:input message="tns:professional.queryPointToPointCDREx"/>
+<wsdl:output message="tns:professional.queryPointToPointCDRExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryAdhocConfFreeBusyEx">
+<wsdl:input message="tns:professional.queryAdhocConfFreeBusyEx"/>
+<wsdl:output message="tns:professional.queryAdhocConfFreeBusyExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="synchAdhocConfFreeBusyEx">
+<wsdl:input message="tns:professional.synchAdhocConfFreeBusyEx"/>
+<wsdl:output message="tns:professional.synchAdhocConfFreeBusyExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryAdhocConferencesEx">
+<wsdl:input message="tns:professional.queryAdhocConferencesEx"/>
+<wsdl:output message="tns:professional.queryAdhocConferencesExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="queryConfSiteMCUEx">
+<wsdl:input message="tns:professional.queryConfSiteMCUEx"/>
+<wsdl:output message="tns:professional.queryConfSiteMCUExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getContinuousPresenceInfoEx">
+<wsdl:input message="tns:professional.getContinuousPresenceInfoEx"/>
+<wsdl:output message="tns:professional.getContinuousPresenceInfoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getContinuousPresenceParamEx">
+<wsdl:input message="tns:professional.getContinuousPresenceParamEx"/>
+<wsdl:output message="tns:professional.getContinuousPresenceParamExResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="TPProfessional.ConfCtr">
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+</jaxws:bindings><wsdl:operation name="setVideoSourceEx">
+<wsdl:input message="tns:professional.setVideoSourceEx"/>
+<wsdl:output message="tns:professional.setVideoSourceExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setAudioSwitchEx">
+<wsdl:input message="tns:professional.setAudioSwitchEx"/>
+<wsdl:output message="tns:professional.setAudioSwitchExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setBroadcastSiteEx">
+<wsdl:input message="tns:professional.setBroadcastSiteEx"/>
+<wsdl:output message="tns:professional.setBroadcastSiteExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setBroadcastContinuousPresenceEx">
+<wsdl:input message="tns:professional.setBroadcastContinuousPresenceEx"/>
+<wsdl:output message="tns:professional.setBroadcastContinuousPresenceExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setSitesMuteEx">
+<wsdl:input message="tns:professional.setSitesMuteEx"/>
+<wsdl:output message="tns:professional.setSitesMuteExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setSitesQuietEx">
+<wsdl:input message="tns:professional.setSitesQuietEx"/>
+<wsdl:output message="tns:professional.setSitesQuietExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setContinuousPresenceEx">
+<wsdl:input message="tns:professional.setContinuousPresenceEx"/>
+<wsdl:output message="tns:professional.setContinuousPresenceExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="requestConfChairEx">
+<wsdl:input message="tns:professional.requestConfChairEx"/>
+<wsdl:output message="tns:professional.requestConfChairExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="releaseConfChairEx">
+<wsdl:input message="tns:professional.releaseConfChairEx"/>
+<wsdl:output message="tns:professional.releaseConfChairExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setFloorEx">
+<wsdl:input message="tns:professional.setFloorEx"/>
+<wsdl:output message="tns:professional.setFloorExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="setConfSiteVolumeEx">
+<wsdl:input message="tns:professional.setConfSiteVolumeEx"/>
+<wsdl:output message="tns:professional.setConfSiteVolumeExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="displayConfSiteLocalVideoEx">
+<wsdl:input message="tns:professional.displayConfSiteLocalVideoEx"/>
+<wsdl:output message="tns:professional.displayConfSiteLocalVideoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="hideConfSiteLocalVideoEx">
+<wsdl:input message="tns:professional.hideConfSiteLocalVideoEx"/>
+<wsdl:output message="tns:professional.hideConfSiteLocalVideoExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="lockPresentationEx">
+<wsdl:input message="tns:professional.lockPresentationEx"/>
+<wsdl:output message="tns:professional.lockPresentationExResponse"/>
+</wsdl:operation>
+<wsdl:operation name="unlockPresentationEx">
+<wsdl:input message="tns:professional.unlockPresentationEx"/>
+<wsdl:output message="tns:professional.unlockPresentationExResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+
+<!--###################################### binding Start ######################################-->
+<wsdl:binding name="TPProfessional.MCUMgrbinding" type="tns:TPProfessional.MCUMgr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="queryMCUInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/queryMCUInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryMCUFutureResourceEx">
+<soap:operation soapAction="http://smc.huawei.com/queryMCUFutureResourceEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPProfessional.SiteMgrbinding" type="tns:TPProfessional.SiteMgr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="isConnectAuxSourceEx">
+<soap:operation soapAction="http://smc.huawei.com/isConnectAuxSourceEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="isSendAuxStreamEx">
+<soap:operation soapAction="http://smc.huawei.com/isSendAuxStreamEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="isReceiveRemAuxStrmEx">
+<soap:operation soapAction="http://smc.huawei.com/isReceiveRemAuxStrmEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setAuxStreamEx">
+<soap:operation soapAction="http://smc.huawei.com/setAuxStreamEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryAuxStreamSourcesEx">
+<soap:operation soapAction="http://smc.huawei.com/queryAuxStreamSourcesEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryVideoOutSrcStateEx">
+<soap:operation soapAction="http://smc.huawei.com/queryVideoOutSrcStateEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ctrlCameraEx">
+<soap:operation soapAction="http://smc.huawei.com/ctrlCameraEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setMainAuxStreamSourcesEx">
+<soap:operation soapAction="http://smc.huawei.com/setMainAuxStreamSourcesEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryMainStreamSourcesEx">
+<soap:operation soapAction="http://smc.huawei.com/queryMainStreamSourcesEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setVideoOutSrcEx">
+<soap:operation soapAction="http://smc.huawei.com/setVideoOutSrcEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySiteVersionInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/querySiteVersionInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addSiteInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/addSiteInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="editSiteInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/editSiteInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteSiteInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/deleteSiteInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySitesInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/querySitesInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPProfessional.TerminalConfCtrbinding" type="tns:TPProfessional.TerminalConfCtr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="requestChairEx">
+<soap:operation soapAction="http://smc.huawei.com/requestChairEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="releaseChairEx">
+<soap:operation soapAction="http://smc.huawei.com/releaseChairEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryConfCtrlPwdEx">
+<soap:operation soapAction="http://smc.huawei.com/queryConfCtrlPwdEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryBroadInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/queryBroadInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setRecordBroadEx">
+<soap:operation soapAction="http://smc.huawei.com/setRecordBroadEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setDirectBroadEx">
+<soap:operation soapAction="http://smc.huawei.com/setDirectBroadEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPProfessional.OrgaMgrbinding" type="tns:TPProfessional.OrgaMgr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="queryOrganizationEx">
+<soap:operation soapAction="http://smc.huawei.com/queryOrganizationEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TP.Commonbinding" type="tns:TP.Common">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="LoginRequest">
+<soap:operation soapAction="http://smc.huawei.com/LoginRequest" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Authenticate">
+<soap:operation soapAction="http://smc.huawei.com/Authenticate" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Logout">
+<soap:operation soapAction="http://smc.huawei.com/Logout" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="KeepAlive">
+<soap:operation soapAction="http://smc.huawei.com/KeepAlive" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPProfessional.ConfMgrbinding" type="tns:TPProfessional.ConfMgr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="scheduleConfEx">
+<soap:operation soapAction="http://smc.huawei.com/scheduleConfEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="scheduleRecurrenceConferenceEx">
+<soap:operation soapAction="http://smc.huawei.com/scheduleRecurrenceConferenceEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="editScheduledConfEx">
+<soap:operation soapAction="http://smc.huawei.com/editScheduledConfEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="editRecurrenceConferenceEx">
+<soap:operation soapAction="http://smc.huawei.com/editRecurrenceConferenceEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySitesEx">
+<soap:operation soapAction="http://smc.huawei.com/querySitesEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="prolongScheduledConfEx">
+<soap:operation soapAction="http://smc.huawei.com/prolongScheduledConfEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="querySiteStatusEx">
+<soap:operation soapAction="http://smc.huawei.com/querySiteStatusEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryConferencesStatusEx">
+<soap:operation soapAction="http://smc.huawei.com/queryConferencesStatusEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryConfSitesStatusEx">
+<soap:operation soapAction="http://smc.huawei.com/queryConfSitesStatusEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="synchSiteStatusEx">
+<soap:operation soapAction="http://smc.huawei.com/synchSiteStatusEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addSiteToConfEx">
+<soap:operation soapAction="http://smc.huawei.com/addSiteToConfEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="delSiteFromConfEx">
+<soap:operation soapAction="http://smc.huawei.com/delSiteFromConfEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="connectSitesEx">
+<soap:operation soapAction="http://smc.huawei.com/connectSitesEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="disconnectSitesEx">
+<soap:operation soapAction="http://smc.huawei.com/disconnectSitesEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="delScheduledConfEx">
+<soap:operation soapAction="http://smc.huawei.com/delScheduledConfEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryMultiPointCDREx">
+<soap:operation soapAction="http://smc.huawei.com/queryMultiPointCDREx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryPointToPointCDREx">
+<soap:operation soapAction="http://smc.huawei.com/queryPointToPointCDREx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryAdhocConfFreeBusyEx">
+<soap:operation soapAction="http://smc.huawei.com/queryAdhocConfFreeBusyEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="synchAdhocConfFreeBusyEx">
+<soap:operation soapAction="http://smc.huawei.com/synchAdhocConfFreeBusyEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryAdhocConferencesEx">
+<soap:operation soapAction="http://smc.huawei.com/queryAdhocConferencesEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="queryConfSiteMCUEx">
+<soap:operation soapAction="http://smc.huawei.com/queryConfSiteMCUEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getContinuousPresenceInfoEx">
+<soap:operation soapAction="http://smc.huawei.com/getContinuousPresenceInfoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getContinuousPresenceParamEx">
+<soap:operation soapAction="http://smc.huawei.com/getContinuousPresenceParamEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="TPProfessional.ConfCtrbinding" type="tns:TPProfessional.ConfCtr">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="setVideoSourceEx">
+<soap:operation soapAction="http://smc.huawei.com/setVideoSourceEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setAudioSwitchEx">
+<soap:operation soapAction="http://smc.huawei.com/setAudioSwitchEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setBroadcastSiteEx">
+<soap:operation soapAction="http://smc.huawei.com/setBroadcastSiteEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setBroadcastContinuousPresenceEx">
+<soap:operation soapAction="http://smc.huawei.com/setBroadcastContinuousPresenceEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setSitesMuteEx">
+<soap:operation soapAction="http://smc.huawei.com/setSitesMuteEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setSitesQuietEx">
+<soap:operation soapAction="http://smc.huawei.com/setSitesQuietEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setContinuousPresenceEx">
+<soap:operation soapAction="http://smc.huawei.com/setContinuousPresenceEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="requestConfChairEx">
+<soap:operation soapAction="http://smc.huawei.com/requestConfChairEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="releaseConfChairEx">
+<soap:operation soapAction="http://smc.huawei.com/releaseConfChairEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setFloorEx">
+<soap:operation soapAction="http://smc.huawei.com/setFloorEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="setConfSiteVolumeEx">
+<soap:operation soapAction="http://smc.huawei.com/setConfSiteVolumeEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="displayConfSiteLocalVideoEx">
+<soap:operation soapAction="http://smc.huawei.com/displayConfSiteLocalVideoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="hideConfSiteLocalVideoEx">
+<soap:operation soapAction="http://smc.huawei.com/hideConfSiteLocalVideoEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="lockPresentationEx">
+<soap:operation soapAction="http://smc.huawei.com/lockPresentationEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="unlockPresentationEx">
+<soap:operation soapAction="http://smc.huawei.com/unlockPresentationEx" style="document" />
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+
+<!--###################################### binding end ######################################-->
+<wsdl:service name="eSDKService"><wsdl:port binding="tns:TPProfessional.MCUMgrbinding" name="TPProfessional.MCUMgr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPProfessional.SiteMgrbinding" name="TPProfessional.SiteMgr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPProfessional.TerminalConfCtrbinding" name="TPProfessional.TerminalConfCtr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPProfessional.OrgaMgrbinding" name="TPProfessional.OrgaMgr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TP.Commonbinding" name="TP.Common">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPProfessional.ConfMgrbinding" name="TPProfessional.ConfMgr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+<wsdl:port binding="tns:TPProfessional.ConfCtrbinding" name="TPProfessional.ConfCtr">
+<soap:address location="http://localhost:8080"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

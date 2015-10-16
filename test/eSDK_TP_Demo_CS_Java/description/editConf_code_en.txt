@@ -1,0 +1,2236 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+
+</head>
+
+<body>
+
+<div class=WordSection1>
+
+<p class=MsoTitle align=left style='text-align:left'><span lang=EN-US>EditScheduleConfBtnActionImpl.java</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>package</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.action.impl</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>java.security.MessageDigest</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>java.security.NoSuchAlgorithmException</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> org.apache.log4j.Logger;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.action.DemoAction</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.common.DemoException</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.convert.EditConfServiceConvert</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.Authenticate</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.AuthenticateResponse</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.EditScheduledConfEx</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> com.huawei.esdk.csdemo.soap.impl.autogen.EditScheduledConfExResponse;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.LoginRequest</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.LoginRequestResponse</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.Logout</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.LogoutResponse</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.TPCommon</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.TPProfessionalConfMgr</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.keygen.GetPublicKey</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.keygen.GetPublicKeyResponse</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.keygen.PlatformKeyMgr</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.keygen.SetSecretKey</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.keygen.SetSecretKeyResponse</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> com.huawei.esdk.csdemo.soap.impl.utils.AES128Utils;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> com.huawei.esdk.csdemo.soap.impl.utils.Base64Utils;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.utils.ClientProvider</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> com.huawei.esdk.csdemo.soap.impl.utils.RSA2048Utils;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>import</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.utils.StringUtils</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'>public</span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> class <span class=SpellE>EditScheduleConfBtnActionImpl</span> implements <span
+class=SpellE>DemoAction</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>登录鉴权</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+<span class=SpellE>TPCommon</span> <span class=SpellE>tpCommon</span> = (<span
+class=SpellE>TPCommon</span>)<span class=SpellE>ClientProvider.getClient</span>(<span
+class=SpellE>TPCommon.class</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>会议管理</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+<span class=SpellE>TPProfessionalConfMgr</span> <span class=SpellE>tpProfessionalConfMgr</span>
+=<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(TPProfessionalConfMgr)<span class=GramE>ClientProvider.getClient(</span>TPProfessionalConfMgr.class);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>密钥协商</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+<span class=SpellE>PlatformKeyMgr</span> <span class=SpellE>platformKeyMgr</span>
+= (<span class=SpellE>PlatformKeyMgr</span>)<span class=SpellE>ClientProvider.getClient</span>(<span
+class=SpellE>PlatformKeyMgr.class</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* log</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>日志对象</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+static final Logger <span class=SpellE>LOGGER</span> = <span class=SpellE>Logger.getLogger</span>(<span
+class=SpellE>EditScheduleConfBtnActionImpl.class</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>@Override<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>public</span>
+void <span class=SpellE>executeNativeMethod</span>()<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>设置入参</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>com.huawei.esdk.csdemo.soap.impl.autogen.ConferenceInfoEx</span></span>
+<span class=SpellE>conferenceInfo</span> =<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>new</span> <span class=SpellE>com.huawei.esdk.csdemo.soap.impl.autogen.ConferenceInfoEx</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>从面板中拿到所有参数</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>try</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>EditConfServiceConvert.getParametersFromConferenceInfoFrame(</span>conferenceInfo);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>catch</span> (<span class=SpellE>DemoException</span> e)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>//</span><span style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:
+Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;color:black;
+mso-font-kerning:0pt'>界面上输入参数类型错误时，显示错误信息</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>EditConfServiceConvert.showConvertErrInfo</span></span><span
+class=GramE>(</span><span class=SpellE>e.getErrInfo</span>());<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>return</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>登录</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Integer <span class=SpellE>loginCode</span> = <span class=GramE>login(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if(</span>0 != <span class=SpellE>loginCode</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>EditConfServiceConvert.showloginErrCode</span></span><span
+class=GramE>(</span><span class=SpellE>loginCode</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>return</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>//AES128</span><span style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:
+Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;color:black;
+mso-font-kerning:0pt'>密钥协商，用于对传输信息中的敏感数据加密</span><span lang=EN-US
+style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>aes128_<span class=GramE>consulted(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>加密敏感字段</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (null != <span class=SpellE>conferenceInfo.getPassword</span>()
+&amp;&amp;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>!<span class=SpellE><span class=GramE>conferenceInfo.getPassword</span></span><span
+class=GramE>(</span>).trim().<span class=SpellE>isEmpty</span>())<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>conferenceInfo.setPassword</span></span><span
+class=GramE>(</span>AES128Utils.encryptPwd(<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>conferenceInfo.getPassword</span></span><span
+class=GramE>(</span>)));<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (null != <span class=SpellE>conferenceInfo.getChairmanPassword</span>()
+&amp;&amp;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>!<span class=SpellE><span class=GramE>conferenceInfo.getChairmanPassword</span></span><span
+class=GramE>(</span>).trim().<span class=SpellE>isEmpty</span>())<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>conferenceInfo.setChairmanPassword</span></span><span
+class=GramE>(</span>AES128Utils.encryptPwd(<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>conferenceInfo.getChairmanPassword</span></span><span
+class=GramE>(</span>)));<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>返回创建会议结果，</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'>result</span><span style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:
+Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;color:black;
+mso-font-kerning:0pt'>包含错误码及创建会议信息</span><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>EditScheduledConfEx</span> <span class=SpellE>param</span> = new <span
+class=SpellE><span class=GramE>EditScheduledConfEx</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>param.setEditConf</span></span><span
+class=GramE>(</span><span class=SpellE>conferenceInfo</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>EditScheduledConfExResponse</span> result = <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>tpProfessionalConfMgr.editScheduledConfEx</span></span><span
+class=GramE>(</span><span class=SpellE>param</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>把返回结果渲染到面板中</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>EditConfServiceConvert.showResultInFrame</span></span><span
+class=GramE>(</span>result);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>登出</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>logout(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>该方法用于登录</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'>eSDK</span><span style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:
+Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;color:black;
+mso-font-kerning:0pt'>，相当于</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black;mso-font-kerning:0pt'>native</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>中的</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'>login</span><span style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:
+Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;color:black;
+mso-font-kerning:0pt'>方法，</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>实际为</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> soap </span><span style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:
+Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;color:black;
+mso-font-kerning:0pt'>接口</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black;mso-font-kerning:0pt'> <span class=SpellE>loginRequest</span></span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>和</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'>authenticate</span><span style='font-size:12.0pt;font-family:宋体;
+mso-ascii-font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;
+color:black;mso-font-kerning:0pt'>的复合</span><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>用于用户登录</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;</span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>public</span>
+Integer login()<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>LoginRequestResponse</span> <span class=SpellE>loginRequestResponse</span>
+= <span class=SpellE><span class=GramE>loginRequest</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (0 == <span class=SpellE>loginRequestResponse.getResultCode</span>())<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>return</span> authenticate(<span class=SpellE>loginRequestResponse</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>else</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>return</span> <span class=SpellE>loginRequestResponse.getResultCode</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>该方法用于登出</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'>eSDK<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>public</span>
+Integer logout()<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>LogoutResponse</span> <span class=SpellE>logoutResponse</span> = <span
+class=SpellE><span class=GramE>tpCommon.logout</span></span><span class=GramE>(</span>new
+Logout());<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>int</span></span> <span class=SpellE>resultCode</span>
+= <span class=SpellE>logoutResponse.getResultCode</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (0 != <span class=SpellE>resultCode</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>LOGGER.info(</span>&quot;Edit scheduled conference due
+to logout failed, <span class=SpellE>errorCode</span> is : &quot; + <span
+class=SpellE>resultCode</span>); <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>return</span> <span class=SpellE>resultCode</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>登录方法</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>用于用户登录请求</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+<span class=SpellE>LoginRequestResponse</span> <span class=SpellE>loginRequest</span>()<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>获取参数</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String <span class=SpellE>userName</span> = <span class=GramE>com.huawei.esdk.csdemo.soap.impl.utils.PropertiesUtils.getValue(</span>&quot;userName&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String <span class=SpellE>clientType</span> = &quot;API&quot;;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Integer version = 2;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>拼装登录接口</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>LoginRequest</span> <span class=SpellE>loginRequest</span> = new <span
+class=SpellE><span class=GramE>LoginRequest</span></span><span class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>loginRequest.setUserName</span></span><span
+class=GramE>(</span><span class=SpellE>userName</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>loginRequest.setClientType</span></span><span
+class=GramE>(</span><span class=SpellE>clientType</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>loginRequest.setVersion</span></span><span
+class=GramE>(</span>version);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>调用登录接口</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>LoginRequestResponse</span> <span class=SpellE>loginRequestResponse</span>
+= new <span class=SpellE><span class=GramE>LoginRequestResponse</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>loginRequestResponse</span></span> = <span
+class=SpellE>tpCommon.loginRequest</span>(<span class=SpellE>loginRequest</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>return</span> <span class=SpellE>loginRequestResponse</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>鉴权方法</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>用于认证会话</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+Integer authenticate(<span class=SpellE>LoginRequestResponse</span> <span
+class=SpellE>loginRequestResponse</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>获取参数</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String password = <span class=GramE>com.huawei.esdk.csdemo.soap.impl.utils.PropertiesUtils.getValue(</span>&quot;password&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String <span class=SpellE>randomkey</span> = <span class=GramE>Base64Utils.encode(</span><span
+class=SpellE>loginRequestResponse.getRandomSequence</span>());<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String <span class=SpellE>pwd</span> = <span class=SpellE><span
+class=GramE>getEncryptPassword</span></span><span class=GramE>(</span>(<span
+class=SpellE>randomkey</span> == null) ? &quot;<span class=GramE>&quot; :</span>
+<span class=SpellE>randomkey</span>, password);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>byte[</span>] <span class=SpellE>encryptPassword</span> =
+Base64Utils.getFromBASE64((<span class=SpellE>pwd</span> == null) ? &quot;<span
+class=GramE>&quot; :</span> <span class=SpellE>pwd</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>拼装鉴权接口</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Authenticate <span class=SpellE>authenticate</span> = new <span
+class=GramE>Authenticate(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>authenticate.setEncryptPassword</span></span><span
+class=GramE>(</span><span class=SpellE>encryptPassword</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>调用鉴权接口</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>AuthenticateResponse</span> <span class=SpellE>authenticateResponse</span>
+= new <span class=SpellE><span class=GramE>AuthenticateResponse</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>authenticateResponse</span></span> = <span
+class=SpellE>tpCommon.authenticate</span>(authenticate);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>鉴权失败，返回给页面</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Integer <span class=SpellE>resultCode</span> = <span class=SpellE><span
+class=GramE>authenticateResponse.getResultCode</span></span><span class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (0 != <span class=SpellE>resultCode</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>LOGGER.info(</span>&quot;Edit scheduled conference
+failed due to authenticate failed, <span class=SpellE>errorCode</span> is :
+&quot; + <span class=SpellE>resultCode</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>return</span> <span class=SpellE>resultCode</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>加密方法</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>用于加密<span
+class=GramE>鉴</span>权时传输的密码</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+String <span class=SpellE>getEncryptPassword</span>(String <span class=SpellE>randomkey</span>,
+String key)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> ((<span class=SpellE>StringUtils.isEmpty</span>(key)) ||
+(<span class=SpellE>StringUtils.isEmpty</span>(<span class=SpellE>randomkey</span>)))<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>return</span> null;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String <span class=SpellE>ep</span> = null;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>try</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class=SpellE>MessageDigest</span> md = <span class=SpellE><span class=GramE>MessageDigest.getInstance</span></span><span
+class=GramE>(</span>&quot;SHA-256&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>md.update</span></span><span
+class=GramE>(</span><span class=SpellE>key.getBytes</span>());<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>byte[</span>] <span class=SpellE>encryptPassword</span>
+= <span class=SpellE>md.digest</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>StringBuilder</span> <span class=SpellE>sBuilder</span>
+= new <span class=SpellE><span class=GramE>StringBuilder</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>sBuilder.append</span></span><span
+class=GramE>(</span>AES128Utils.byte2Hex(<span class=SpellE>encryptPassword</span>));<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String password = <span class=SpellE><span class=GramE>sBuilder.toString</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>sBuilder</span></span> = new <span
+class=SpellE>StringBuilder</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>sBuilder.append(</span>AES128Utils.byte2Hex(Base64Utils.getFromBASE64(randomkey)));<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>password</span> = password + <span class=SpellE>sBuilder.toString</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>md.update</span></span><span
+class=GramE>(</span><span class=SpellE>password.getBytes</span>());<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>encryptPassword</span></span> = <span
+class=SpellE>md.digest</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>ep</span></span> =
+Base64Utils.encode(<span class=SpellE>encryptPassword</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>catch</span> (<span class=SpellE>NoSuchAlgorithmException</span> e)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>LOGGER.error</span></span><span
+class=GramE>(</span>&quot;Exception happened in <span class=SpellE>getEncryptPassword</span>()&quot;,
+e);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>return</span> <span class=SpellE>ep</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>密钥协商方法</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* soap </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>接口</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'> <span class=SpellE>getPublicKey</span></span><span style='font-size:12.0pt;
+font-family:宋体;mso-ascii-font-family:Consolas;mso-fareast-font-family:宋体;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:
+Consolas;color:black;mso-font-kerning:0pt'>和</span><span class=SpellE><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'>setSecretkey</span></span><span style='font-size:12.0pt;font-family:宋体;
+mso-ascii-font-family:Consolas;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Consolas;mso-bidi-font-family:Consolas;
+color:black;mso-font-kerning:0pt'>的复合</span><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>在登录成功之后调用</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>public</span>
+Integer aes128_consulted()<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>获取公<span
+class=GramE>钥</span></span><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Integer <span class=SpellE>publicKey</span> = <span class=SpellE><span
+class=GramE>getPublicKey</span></span><span class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (0 == <span class=SpellE>publicKey</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Integer <span class=SpellE>secretKey</span> = <span class=SpellE><span
+class=GramE>setSecretkey</span></span><span class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>return</span> <span class=SpellE>secretKey</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>else</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>return</span> <span class=SpellE>publicKey</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>密钥方法</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>用于获取公<span
+class=GramE>钥</span></span><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+Integer <span class=SpellE>getPublicKey</span>()<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>定义返回结果</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>int</span></span> <span class=SpellE>resultCode</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>GetPublicKey</span> <span class=SpellE>publicKeyParam</span> = new
+<span class=SpellE><span class=GramE>GetPublicKey</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>publicKeyParam.setSecretType</span></span><span
+class=GramE>(</span>&quot;RSA2048&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>GetPublicKeyResponse</span> <span class=SpellE>publicKeyResponse</span>
+= <span class=SpellE><span class=GramE>platformKeyMgr.getPublicKey</span></span><span
+class=GramE>(</span><span class=SpellE>publicKeyParam</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>resultCode</span></span> = <span class=SpellE>publicKeyResponse.getResultCode</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (0 != <span class=SpellE>resultCode</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>LOGGER.info(</span>&quot;Edit scheduled conference
+failed due to <span class=SpellE>getPublicKey</span> failed, <span
+class=SpellE>errorCode</span> is : &quot; + <span class=SpellE>resultCode</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>将公<span
+class=GramE>钥</span>设置到</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black;mso-font-kerning:0pt'>RSA2048Utils</span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>类里</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>RSA2048Utils.setPublicKey(</span><span class=SpellE>publicKeyResponse.getPublicKey</span>());<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>return</span> <span class=SpellE>resultCode</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>密钥方法</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>用于进行密钥协商</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>* <o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>private</span>
+Integer <span class=SpellE>setSecretkey</span>()<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>定义返回结果</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>int</span></span> <span class=SpellE>resultCode</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>密钥协商</span><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;color:black;mso-font-kerning:
+0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>byte[</span>] <span class=SpellE>secretKey</span> =
+AES128Utils.getBT_KEY();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>byte[</span>] iv = AES128Utils.getBT_IV();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// </span><span
+style='font-size:12.0pt;font-family:宋体;mso-ascii-font-family:Consolas;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Consolas;mso-bidi-font-family:Consolas;color:black;mso-font-kerning:0pt'>使用公<span
+class=GramE>钥</span>来加密工作密钥和初始向量</span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;color:black;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String <span class=SpellE>secretKeyStr</span> = null;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>String <span class=SpellE>ivStr</span> = null;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>try</span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>secretKeyStr</span></span> = Base64Utils.encode(RSA2048Utils.encode(AES128Utils.byte2Hex(secretKey).getBytes(&quot;UTF-8&quot;)));<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>ivStr</span></span> =
+Base64Utils.encode(RSA2048Utils.encode(AES128Utils.byte2Hex(iv).getBytes(&quot;UTF-8&quot;)));<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>catch</span> (Exception e)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='mso-spacerun:yes'>&nbsp;</span><span class=GramE>LOGGER.info(</span>&quot;failed
+to <span class=SpellE>setSecretKey</span>&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>SetSecretKey</span> <span class=SpellE>setSecretKeyParam</span> =
+new <span class=SpellE><span class=GramE>SetSecretKey</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>setSecretKeyParam.setSecretType</span></span><span
+class=GramE>(</span>&quot;AES128&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>setSecretKeyParam.setSecretKey</span></span><span
+class=GramE>(</span><span class=SpellE>secretKeyStr</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>setSecretKeyParam.setIv</span></span><span
+class=GramE>(</span><span class=SpellE>ivStr</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE>SetSecretKeyResponse</span> <span class=SpellE>setSecretKeyResponse</span>
+= <span class=SpellE><span class=GramE>platformKeyMgr.setSecretKey</span></span><span
+class=GramE>(</span><span class=SpellE>setSecretKeyParam</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=SpellE><span class=GramE>resultCode</span></span> = <span class=SpellE>setSecretKeyResponse.getResultCode</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>if</span> (0 != <span class=SpellE>resultCode</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>LOGGER.info(</span>&quot;Edit scheduled conference
+failed due to <span class=SpellE>setSecretKey</span> failed, <span
+class=SpellE>errorCode</span> is : &quot; + <span class=SpellE>resultCode</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>return</span> <span class=SpellE>resultCode</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;color:black;mso-font-kerning:0pt'>}<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

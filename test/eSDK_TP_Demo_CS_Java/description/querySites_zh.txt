@@ -1,0 +1,722 @@
+<html>
+
+<head>
+</head>
+
+<body style="width: 100%;">
+	<p style="font-weight: bold;">querySites接口用于查询会场信息</p>
+
+	<div>
+
+
+		<p style="font-weight: bold;">输入参数描述</p>
+
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="15%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="51%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>queryConfig</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>QueryConfigEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>查询预定义会场时使用的过滤、排序、翻页条件。</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+		<p style="font-weight: bold;">QueryConfigEx</p>
+
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>sortItems</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>List&lt;SortItemEx&gt;</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>排序条件组合，目前只支持单列排序。</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>filters</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>List&lt;FilterBaseEx&gt;</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span> 过滤条件组合，支持多个过滤条件，为AND关系。 </span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>focusItem</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>焦点数据ID。指定当前查询优先返回包含指定ID的数据页面。当查询结果不包含指定ID的数据，按照PageParam要求的页面返回。 </span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>pageParam</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>PageParamEx</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>页码定位参数。指定返回查询结果的第几页。</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+		<p style="font-weight: bold;">SortItemEx</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>sort</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>排序方式：
+0：升序 
+1：降序</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>itemIndex</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>查询条件的数据列标识：
+0：会场名称
+1：会场URI
+2：会场状态
+3：会场类型
+4：会议模板名称
+5：会议模板接入号（Ad hoc类型会议才有接入号）
+6：MCU名称（eSDK V1R2版本不支持） </span>
+				</td>
+			</tr>
+
+		</table>
+
+		<p style="font-weight: bold;">FilterBaseEx: </p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>columnIndex</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>过滤条件的数据列标识：
+0：会场名称
+1：会场URI
+2：会场状态
+3：会场类型
+4：会议模板名称
+5：会议模板接入号（Ad hoc类型会议才有接入号）
+6：MCU名称（eSDK V1R2版本不支持） </span>
+				</td>
+			</tr>
+		</table>
+		
+		<p style="font-weight: bold;">PageParamEx: </p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>numberPerPage</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>每页的记录条数</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>currentPage</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>当前页码，或需要返回的页码。页码从1开始。</span>
+				</td>
+			</tr>
+
+		</table>
+		
+		<p style="font-weight: bold;">返回参数描述</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="16%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="15%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="51%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>resultCode</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>Integer</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>成功返回</span><span>0</span><span>，失败返回错误码</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>sites</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>TerminalInfoEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>操作成功，则根据查询条件，返回查询的会场列表。</span>
+					</p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="16%" valign=top>
+					<p>
+						<span>pageInfo</span>
+					</p>
+				</td>
+				<td width="16%" valign=top>
+					<p>
+						<span>PageParamEx</span>
+					</p>
+				</td>
+				<td width="15%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="51%" valign=top>
+					<p>
+						<span>输出查询结果的翻页信息。第三方应用程序可以根据返回的翻页信息，显示当前页码、总页数、总记录数。</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+		
+		<p style="font-weight: bold;">TerminalInfoEx:</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>name</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>会议名称。</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>uri</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>会场标识。</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>type</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>会场类型。取值说明如下：
+0：无效类型 
+1：根据会场标识自动从系统获取 
+2：E1 类型会场 
+3：ISDN 类型会场 
+4：H.323 类型会场
+5：PSTN 类型会场
+6：4E1 类型会场
+7：SIP 类型会场 
+8：VoIP SIP 类型会场
+9：VoIP H.323 类型会场</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>rate</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>String</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>速率。格式为“速率值k/M”，如“1920k”。
+说明：预约、修改会议时，如果不填写该参数，默认使用会议速率。速率如果小于64K，系统默认为64K，大于8M则默认为8M，64K和8M中间的取值按照实际输入赋值，且必须为整数取值。</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoCapbility</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>List&lt;VdieoCapbilityItem&gt;</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>视频能力。终端支持的视频能力参数列表。如果不填，则认为支持所有视频。</span>
+				</td>
+			</tr>
+
+		</table>
+
+        <p style="font-weight: bold;">TerminalInfoEx:</p>
+		<table border="1" style="width: 100%;">
+			<thead style='background-color: #E7E7E7;'>
+				<tr>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>参数</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>类型</span>
+						</p>
+					</td>
+					<td width="10%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>约束</span>
+						</p>
+					</td>
+					<td width="70%" valign=top>
+						<p>
+							<span style='font-family: 黑体'>描述</span>
+						</p>
+					</td>
+				</tr>
+			</thead>
+
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoFormat</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>视频格式。取值说明如下：
+0：Auto
+1：4 CIF
+2：720P30
+3：1080P30
+4：480P
+5：720P60
+6：1080P60 
+说明：在预约会议时，如果不设置该参数，视频格式由系统根据会议带宽自动适配。</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="11%" valign=top>
+					<p>
+						<span>videoProtocol</span>
+					</p>
+				</td>
+				<td width="11%" valign=top>
+					<p>
+						<span>int</span>
+					</p>
+				</td>
+				<td width="6%" valign=top>
+					<p>
+						<span>0..1</span>
+					</p>
+				</td>
+				<td width="72%" valign=top>
+					<p>
+						<span>视频协议，取值说明如下：
+0：Auto 
+1：H.261协议 
+2：H.263协议 
+3：H.264协议 
+说明：在预约会议时，如果不设置该参数，视频协议由系统根据会议带宽自动适配。</span>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+</body>
+
+</html>
